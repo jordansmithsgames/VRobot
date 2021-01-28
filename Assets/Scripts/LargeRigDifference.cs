@@ -21,20 +21,11 @@ public class LargeRigDifference : MonoBehaviour
     Vector3 newPosL;
     Vector3 newPosR;
 
-    //Rotation variables
-    Quaternion oldRotateL;
-    Quaternion oldRotateR;
-    Quaternion newRotateL;
-    Quaternion newRotateR;
-    Quaternion rotDifferenceR;
-    Quaternion rotDifferenceL;
-
     void Start()
     {
         oldPosL = smallTargetL.transform.position;
         oldPosR = smallTargetR.transform.position;
-        oldRotateL = smallTargetL.transform.rotation;
-        oldRotateR = smallTargetR.transform.rotation;
+        
     }
 
     // Update is called once per frame
@@ -43,28 +34,43 @@ public class LargeRigDifference : MonoBehaviour
         Debug.Log(smallTargetR.transform.position);
 
         //Store new data
-        newPosL = smallTargetL.transform.position;
-        newPosR = smallTargetR.transform.position;
-
-        newRotateL = smallTargetL.transform.rotation;
-        newRotateR = smallTargetR.transform.rotation;
-
+        newPosL = smallTargetL.transform.localPosition;
+        newPosR = smallTargetR.transform.localPosition;
+      
         //Calculate difference
         differenceL = newPosL - oldPosL;
         differenceR = newPosR - oldPosR;
-
-        rotDifferenceL = newRotateL * Quaternion.Inverse(oldRotateL);
-        rotDifferenceR = newRotateR * Quaternion.Inverse(oldRotateR);
-
+      
         //Apply Difference
-        largeTargetL.transform.position += differenceL * 10;
-        largeTargetR.transform.position += differenceR * 10;
-
-        largeTargetL.transform.rotation = oldRotateL * rotDifferenceL;
-        largeTargetR.transform.rotation = oldRotateR * rotDifferenceR;
+        largeTargetL.transform.localPosition = differenceL;
+        largeTargetR.transform.localPosition = differenceR;
+        
+        largeTargetL.transform.localRotation = smallTargetL.transform.localRotation;
+        largeTargetR.transform.localRotation = smallTargetR.transform.localRotation;
 
         //Reassign old position
         oldPosL = smallTargetL.transform.position;
         oldPosR = smallTargetR.transform.position;
     }
 }
+
+
+
+//Rotation variables
+//Quaternion oldRotateL;
+//Quaternion oldRotateR;
+//Quaternion newRotateL;
+//Quaternion newRotateR;
+//Quaternion rotDifferenceR;
+//Quaternion rotDifferenceL;
+
+//oldRotateL = smallTargetL.transform.rotation;
+//oldRotateR = smallTargetR.transform.rotation;
+
+
+//newRotateL = smallTargetL.transform.rotation;
+//newRotateR = smallTargetR.transform.rotation;
+//rotDifferenceL = newRotateL * Quaternion.Inverse(oldRotateL);
+//rotDifferenceR = newRotateR * Quaternion.Inverse(oldRotateR);
+//largeTargetL.transform.rotation = oldRotateL * rotDifferenceL;
+//largeTargetR.transform.rotation = oldRotateR * rotDifferenceR;

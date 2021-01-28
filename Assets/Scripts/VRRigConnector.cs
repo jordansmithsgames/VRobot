@@ -48,7 +48,10 @@ public class VRRigConnector : MonoBehaviour
         //headBodyOffset = transform.position - headConstraint.position;
         //character.transform.localScale = new Vector3(size, size, size);
 
-        transform.position = headConstraint.position + headBodyOffset;
+        //transform.position = headConstraint.position + headBodyOffset;
+        transform.position = headConstraint.position;
+
+        //transform.forward = Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized;
         transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
         head.Map();
         leftHand.Map();
