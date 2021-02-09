@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [System.Serializable]
 
@@ -14,9 +15,7 @@ public class VRMap
     public void Map()
     {
         rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-
         rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
-
     }
 }
 
@@ -34,27 +33,20 @@ public class VRRigConnector : MonoBehaviour
     void Start()
     {
         headBodyOffset = transform.position - headConstraint.position;
-        
-    }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-
     }
 
     private void Update()
     {
-        //headBodyOffset = transform.position - headConstraint.position;
-        //character.transform.localScale = new Vector3(size, size, size);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Tracking player 1!");
+            transform.position = headConstraint.position;
+            transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
 
-        //transform.position = headConstraint.position + headBodyOffset;
-        transform.position = headConstraint.position;
-
-        //transform.forward = Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized;
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
-        head.Map();
-        leftHand.Map();
-        rightHand.Map();
+            head.Map();
+            leftHand.Map();
+            rightHand.Map();
+        }
+        else Debug.Log("Tracking player 2!");
     }
 }
