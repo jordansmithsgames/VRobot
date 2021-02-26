@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour
 {
-    public GameObject particles;
+    public GameObject particlesLarge;
     // Start is called before the first frame update
     void Start()
     {
-        particles.AddComponent<DestructionRemove>();
+        
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Destructable : MonoBehaviour
             //Check if object has already been hit
             if (piece.GetComponent<Rigidbody>().isKinematic == true)
             {
-                Instantiate(particles, transform.position, transform.rotation);
+                Instantiate(particlesLarge, transform.position, transform.rotation);
             }
 
             // Make objects move
