@@ -16,24 +16,25 @@ public class Destructable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {   
-        Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
-        Debug.Log("Particle Count is: " + DQ.particleCount.Count);
+    void fixedUpdate()
+    {
+        //Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
+        //Debug.Log("Particle Count is: " + DQ.particleCount.Count);
+
+        handVelocity();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Destructable"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             GameObject piece;
             GameObject particle;
 
             piece = collision.gameObject;
-            
-         
-            //Check if object has already been hit
+                   
+            // Check if object has already been hit, if not add to queue and instantiate particle effect
             if (piece.GetComponent<Rigidbody>().isKinematic == true)
             {
                 particle = Instantiate(particlesLarge, piece.transform.position, piece.transform.rotation);
@@ -42,20 +43,21 @@ public class Destructable : MonoBehaviour
          
             // Make objects move
             piece.GetComponent<Rigidbody>().useGravity = true;
-            piece.GetComponent<Rigidbody>().isKinematic = false;
-            //piece.AddComponent<DestructionRemove>();
+            piece.GetComponent<Rigidbody>().isKinematic = false;           
         }
     }
 
+    // Adds and removes objects from queue
     public void queueHandler(GameObject destructablePiece, GameObject particles)
     {
         GameObject pieceObject = destructablePiece;
         GameObject particleObject = particles;
 
+        // Adds object to a queue
         DQ.pieceCount.Enqueue(pieceObject);
         DQ.particleCount.Enqueue(particleObject);
 
-        //removes object or particle if there are more than the max 
+        // Removes object or particle if there are more than the max 
         if (DQ.pieceCount.Count > DQ.pieceCountMax)
         {
             Destroy((GameObject)DQ.pieceCount.Dequeue());
@@ -64,5 +66,17 @@ public class Destructable : MonoBehaviour
         {
             Destroy((GameObject)DQ.particleCount.Dequeue());
         }
+    }
+
+    public float handVelocity()
+    {
+        float handVelo;
+
+        handVelo = gameObject.GetComponent<Rigidbody>().velocity.z;
+
+        //Debug.Log("Hand Velocity is: " + handVelo);
+        Debug.Log("Hand Velocity is: " + gameObject.GetComponent<Rigidbody>().velocity.z);
+
+        return handVelo;
     }
 }
