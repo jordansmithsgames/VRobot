@@ -10,6 +10,8 @@ public class DestructionRemove : MonoBehaviour
     float countdown;
     public bool hit;
     bool removed = false;
+
+    
     void Start()
     {
         countdown = delay;
