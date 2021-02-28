@@ -21,7 +21,7 @@ public class Destructable : MonoBehaviour
         //Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
         //Debug.Log("Particle Count is: " + DQ.particleCount.Count);
 
-        handVelocity();
+        //handVelocity();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,15 +68,5 @@ public class Destructable : MonoBehaviour
         }
     }
 
-    public float handVelocity()
-    {
-        float handVelo;
-
-        handVelo = gameObject.GetComponent<Rigidbody>().velocity.z;
-
-        //Debug.Log("Hand Velocity is: " + handVelo);
-        Debug.Log("Hand Velocity is: " + gameObject.GetComponent<Rigidbody>().velocity.z);
-
-        return handVelo;
-    }
+   
 }
