@@ -49,8 +49,10 @@ public class Destructable : MonoBehaviour
     public void queueHandler(GameObject destructablePiece, GameObject particleEffect)
     {
         GameObject pieceObject = destructablePiece;
+        GameObject particles = particleEffect;
 
         DQ.pieceCount.Enqueue(pieceObject);
+        DQ.particleCount.Enqueue(particles);
 
         //makes sure theres never more than 15 destruction particle effects in the scene
         if (DQ.pieceCount.Count > DQ.pieceCountMax)
