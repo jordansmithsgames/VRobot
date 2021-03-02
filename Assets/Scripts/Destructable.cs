@@ -6,12 +6,13 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
     public GameObject particlesLarge;
+    public GameObject destructionHandler;
     DestructionHandler DQ;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        DQ = destructionHandler;
     }
 
     // Update is called once per frame
