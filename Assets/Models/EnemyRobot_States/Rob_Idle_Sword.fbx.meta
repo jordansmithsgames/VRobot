@@ -1,52 +1,12 @@
 fileFormatVersion: 2
-guid: c0e91df9b55dffa408ca757a10bfd981
+guid: 735402bbff2e9e9438c91e40fc9963b9
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Sword_Idle
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Katana_Texture
-    second: {fileID: 2100000, guid: 24c0dedb99f805a41b4f1e1304164938, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_Chest
-    second: {fileID: 2100000, guid: 783351211282d7a49a1f88d264ab5843, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_ChestMain
-    second: {fileID: 2100000, guid: 759b3d8c7eb868f40801505208623811, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_Extra
-    second: {fileID: 2100000, guid: 1ce8b621cdf2ad24e919f87779b2b873, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_Hand
-    second: {fileID: 2100000, guid: fdc96fae21e69724aa8271cc4a999052, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_Head
-    second: {fileID: 2100000, guid: 3c5d32c1ac6a65d43835655cd5cf025b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_HeadParts
-    second: {fileID: 2100000, guid: b963a14f0302a554b9f1aa807b4da784, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robot_Leg
-    second: {fileID: 2100000, guid: de1868540febdc843a3867d3834d80ba, type: 2}
+    second: Idle_Sword
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -55,7 +15,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -75,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sword_Idle
+      name: Idle_Sword
       takeName: Take 001
       internalID: 0
       firstFrame: 0
@@ -86,7 +46,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -106,7 +66,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 30
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -153,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
