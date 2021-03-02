@@ -9,7 +9,7 @@ public class Destructable : MonoBehaviour
 
     public int pieceCountMax = 15;
 
-    Queue pieceCount = new Queue();
+    static Queue pieceCount = new Queue();
 
     // Start is called before the first frame update
     void Start()
