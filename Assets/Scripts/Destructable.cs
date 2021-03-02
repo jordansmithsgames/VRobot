@@ -12,13 +12,13 @@ public class Destructable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DQ = destructionHandler;
+        DQ = destructionHandler.gameObject.GetComponent<DestructionHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {   
-        Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
+        //Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
     }
 
     private void OnCollisionEnter(Collision collision)
