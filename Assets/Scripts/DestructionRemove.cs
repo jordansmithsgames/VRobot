@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestructionRemove : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float delay = 5f;
+    public float delay = 15f;
 
     float countdown;
     public bool hit;

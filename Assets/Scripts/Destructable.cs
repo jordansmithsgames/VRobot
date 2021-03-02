@@ -6,21 +6,18 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
     public GameObject particlesLarge;
-
-    public int pieceCountMax = 15;
-
-    static Queue pieceCount = new Queue();
+    DestructionHandler DQ;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {   
-        Debug.Log("Piece Queue count is: " + pieceCount.Count);
+        Debug.Log("Piece Queue count is: " + DQ.pieceCount.Count);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,33 +26,39 @@ public class Destructable : MonoBehaviour
         {
             Debug.Log("Hit");
             GameObject piece;
+            GameObject particle;
             piece = collision.gameObject;
          
             //Check if object has already been hit
             if (piece.GetComponent<Rigidbody>().isKinematic == true)
             {
-                Instantiate(particlesLarge, piece.transform.position, piece.transform.rotation);
+                particle = Instantiate(particlesLarge, piece.transform.position, piece.transform.rotation);
+                particle.AddComponent<DestructionRemove>();
+
+                queueHandler(piece, particle);
             }
-
-            queueHandler(piece);
-
+          
             // Make objects move
             piece.GetComponent<Rigidbody>().useGravity = true;
             piece.GetComponent<Rigidbody>().isKinematic = false;
-            //piece.AddComponent<DestructionRemove>();
+            
         }
     }
 
-    public void queueHandler(GameObject destructablePiece)
+    public void queueHandler(GameObject destructablePiece, GameObject particleEffect)
     {
         GameObject pieceObject = destructablePiece;
 
-        pieceCount.Enqueue(pieceObject);
+        DQ.pieceCount.Enqueue(pieceObject);
 
         //makes sure theres never more than 15 destruction particle effects in the scene
-        if (pieceCount.Count > pieceCountMax)
+        if (DQ.pieceCount.Count > DQ.pieceCountMax)
         {
-            Destroy((GameObject)pieceCount.Dequeue());
+            Destroy((GameObject)DQ.pieceCount.Dequeue());
+        }
+        if (DQ.particleCount.Count > DQ.particleCountMax)
+        {
+            Destroy((GameObject)DQ.particleCount.Dequeue());
         }
     }
 }
