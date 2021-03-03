@@ -19,7 +19,7 @@ public class EnemyHand_Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player_hand")
+        if(collision.gameObject.CompareTag("Player_Hand"))
         {
             health--;
             if(health <= 0)
