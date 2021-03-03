@@ -24,7 +24,7 @@ public class EnemyBodyDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hr_.GetComponent<EnemyHand_Health>().getHealth() == 0)
+        if(hr_.GetComponent<EnemyHand_Health>().getHealth() == 0 && hrStatus == "Working")
         {
             hr = false;
         }
@@ -38,7 +38,7 @@ public class EnemyBodyDestroy : MonoBehaviour
             anim.SetTrigger("Stagger");
         }
 
-        if(hl_.GetComponent<EnemyHand_Health>().getHealth() == 0)
+        if(hl_.GetComponent<EnemyHand_Health>().getHealth() == 0 && hlStatus == "Working")
         {
             hl = false;
         }

@@ -7,6 +7,8 @@ TagManager:
   - TAZOFX
   - Bullet
   - Destructable
+  - EnemyRobot
+  - Player_Hand
   layers:
   - Default
   - TransparentFX
