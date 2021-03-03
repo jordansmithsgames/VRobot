@@ -11,10 +11,14 @@ public class EnemyMovement : MonoBehaviour
     private bool isMoving = false;
     private float yRot;
 
+    public bool destroyed = true;
+
     private bool drawn = false;
 
     private Animator anim;
     private Rigidbody rigidBody;
+
+    public GameObject mainEnemy;
 
     // Use this for initialization
     void Start()
@@ -76,8 +80,11 @@ public class EnemyMovement : MonoBehaviour
         {
             anim.SetTrigger("SwordAttack_2");
         }
-
-        if (Keyboard.current.dKey.isPressed)
+        if(mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Destroyed")
+        {
+            drawn = false;
+        }
+        if (Keyboard.current.dKey.isPressed && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Working")
         {
             anim.SetTrigger("Draw");
             drawn = true;
@@ -99,6 +106,12 @@ public class EnemyMovement : MonoBehaviour
         else if (drawn)
         {
             anim.SetBool("Walk_Sword", isMoving);
+        }
+
+        if(mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Destroyed" && mainEnemy.GetComponent<EnemyBodyDestroy>().getLeftStatus() == "Destroyed" && destroyed == true)
+        {
+            anim.SetTrigger("Defeat");
+            destroyed = false;
         }
         
 
