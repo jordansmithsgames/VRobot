@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class LargeRigDifference : MonoBehaviour
 { 
-    //Robot rig IK targets
-    public GameObject largeTargetL;
-    public GameObject largeTargetR;
+    //Target IK
+    public GameObject largeLArmTarget;
+    public GameObject largeRArmTarget;
+    public GameObject largeLLegTarget;
+    public GameObject largeRLegTarget;
 
-    //User rig IK targets
-    public GameObject smallTargetL;
-    public GameObject smallTargetR;
+    //Controlling IK
+    public GameObject smallLArmTarget;
+    public GameObject smallRArmTarget;
+    public GameObject smallLLegTarget;
+    public GameObject smallRLegTarget;
 
     //Robot movement speed
     public int speed = 4;
 
     void Update()
     {
-        Vector3 posOneL = smallTargetL.transform.localPosition;
-        Vector3 posOneR = smallTargetR.transform.localPosition;
+        largeLArmTarget.transform.localPosition = Vector3.Lerp(largeLArmTarget.transform.localPosition, smallLArmTarget.transform.localPosition, Time.deltaTime * speed);
+        largeRArmTarget.transform.localPosition = Vector3.Lerp(largeRArmTarget.transform.localPosition, smallRArmTarget.transform.localPosition, Time.deltaTime * speed);
+        largeLLegTarget.transform.localPosition = Vector3.Lerp(largeLLegTarget.transform.localPosition, smallLLegTarget.transform.localPosition, Time.deltaTime * speed);
+        largeRLegTarget.transform.localPosition = Vector3.Lerp(largeRLegTarget.transform.localPosition, smallRLegTarget.transform.localPosition, Time.deltaTime * speed);
 
-        largeTargetL.transform.localPosition = Vector3.Lerp(largeTargetL.transform.localPosition, posOneL, Time.deltaTime * speed);
-        largeTargetR.transform.localPosition = Vector3.Lerp(largeTargetR.transform.localPosition, posOneR, Time.deltaTime * speed);
-
-        Quaternion rotOneL = smallTargetL.transform.localRotation;
-        Quaternion rotOneR = smallTargetR.transform.localRotation;
-
-        largeTargetL.transform.localRotation = Quaternion.Slerp(largeTargetL.transform.localRotation, rotOneL, Time.deltaTime * speed);
-        largeTargetR.transform.localRotation = Quaternion.Slerp(largeTargetR.transform.localRotation, rotOneR, Time.deltaTime * speed);
+        largeLArmTarget.transform.localRotation = Quaternion.Slerp(largeLArmTarget.transform.localRotation, smallLArmTarget.transform.localRotation, Time.deltaTime * speed);
+        largeRArmTarget.transform.localRotation = Quaternion.Slerp(largeRArmTarget.transform.localRotation, smallRArmTarget.transform.localRotation, Time.deltaTime * speed);
+        largeLLegTarget.transform.localRotation = Quaternion.Slerp(largeLLegTarget.transform.localRotation, smallLLegTarget.transform.localRotation, Time.deltaTime * speed);
+        largeRLegTarget.transform.localRotation = Quaternion.Slerp(largeRLegTarget.transform.localRotation, smallRLegTarget.transform.localRotation, Time.deltaTime * speed);
     }
 }
