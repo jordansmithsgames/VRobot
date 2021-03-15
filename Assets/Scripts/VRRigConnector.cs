@@ -7,21 +7,19 @@ using Photon.Pun;
 
 public class VRRigMap
 {
-    public Transform controllerTarget;
-    public Transform rigTarget;
+    public LimbController limbController;
     public Vector3 trackingPositionOffset;
     public Vector3 trackingRotationOffset;
 
     public void Map()
     {
-        rigTarget.position = controllerTarget.TransformPoint(trackingPositionOffset);
-        rigTarget.rotation = controllerTarget.rotation * Quaternion.Euler(trackingRotationOffset);
+        limbController.target.transform.position = limbController.controller.transform.TransformPoint(trackingPositionOffset);
+        limbController.target.transform.rotation = limbController.controller.transform.rotation * Quaternion.Euler(trackingRotationOffset);
     }
 }
 
 public class VRRigConnector : MonoBehaviour
 {
-    public VRRigMap head;
     public VRRigMap leftControl;
     public VRRigMap rightControl;
 
@@ -37,16 +35,10 @@ public class VRRigConnector : MonoBehaviour
 
     private void Update()
     {
-/*        if (PhotonNetwork.IsMasterClient)
-        {*/
-            Debug.Log("Tracking player 1!");
-            transform.position = headConstraint.position;
-            transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        //transform.position = headConstraint.position;
+        //transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);*/
 
-            head.Map();
-            leftControl.Map();
-            rightControl.Map();
-/*        }
-        else Debug.Log("Tracking player 2!");*/
+        if (!leftControl.limbController.far) leftControl.Map();
+        if (!rightControl.limbController.far) rightControl.Map();
     }
 }
