@@ -11,8 +11,8 @@ public class LimbController : MonoBehaviour
     void Start()
     {
         // Initialize to be at same location
-        controller.transform.position = transform.position;
-        target.transform.position = transform.position;
+        //controller.transform.position = transform.position;
+        //target.transform.position = transform.position;
         far = true;
     }
 
