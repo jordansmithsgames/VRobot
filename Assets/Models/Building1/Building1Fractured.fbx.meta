@@ -1,17 +1,12 @@
 fileFormatVersion: 2
-guid: c86ea31a2ff583549929081a991a07cc
+guid: 1856053aa5eda1f43a5176db32e16f87
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PatBuilding1StandardSurface
-    second: {fileID: 2100000, guid: c8ee8a2d944fe8742801206f423c3a5f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -53,7 +48,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
