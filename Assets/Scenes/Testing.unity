@@ -2641,7 +2641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126104060}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.51, y: 21.541, z: 32.307}
+  m_LocalPosition: {x: 0.51, y: 21.4541, z: 32.048}
   m_LocalScale: {x: 0.23999837, y: 0.23999837, z: 0.23999837}
   m_Children:
   - {fileID: 614909689}
@@ -8853,7 +8853,6 @@ GameObject:
   m_Component:
   - component: {fileID: 388370802}
   - component: {fileID: 388370803}
-  - component: {fileID: 388370804}
   m_Layer: 0
   m_Name: VRConstraints
   m_TagString: Untagged
@@ -8892,32 +8891,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Effectors: []
---- !u!114 &388370804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388370801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 1
-  OwnershipTransfer: 1
-  ObservedComponents:
-  - {fileID: 1859570788}
-  - {fileID: 1859570787}
-  - {fileID: 4345050}
-  - {fileID: 4345049}
-  viewIdField: 4
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &389534355
 GameObject:
   m_ObjectHideFlags: 0
@@ -25743,7 +25716,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1599024703}
   - component: {fileID: 1599024702}
-  - component: {fileID: 1599024704}
   m_Layer: 0
   m_Name: VRConstraints
   m_TagString: Untagged
@@ -25782,32 +25754,6 @@ Transform:
   m_Father: {fileID: 543450652550601751}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1599024704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599024701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 1
-  OwnershipTransfer: 1
-  ObservedComponents:
-  - {fileID: 381719260}
-  - {fileID: 381719259}
-  - {fileID: 1949418351}
-  - {fileID: 1949418350}
-  viewIdField: 1
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &1601293840
 GameObject:
   m_ObjectHideFlags: 0
@@ -33700,6 +33646,7 @@ GameObject:
   - component: {fileID: 2067780015}
   - component: {fileID: 2067780014}
   - component: {fileID: 2067780017}
+  - component: {fileID: 2067780018}
   m_Layer: 0
   m_Name: User Robot
   m_TagString: Untagged
@@ -33849,6 +33796,36 @@ MonoBehaviour:
   smallLLegTarget: {fileID: 644790141}
   smallRLegTarget: {fileID: 2033931854}
   speed: 4
+--- !u!114 &2067780018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067780012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 1
+  ObservedComponents:
+  - {fileID: 381719260}
+  - {fileID: 381719259}
+  - {fileID: 1949418351}
+  - {fileID: 1949418350}
+  - {fileID: 1859570788}
+  - {fileID: 1859570787}
+  - {fileID: 4345050}
+  - {fileID: 4345049}
+  viewIdField: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2069545019
 GameObject:
   m_ObjectHideFlags: 0
