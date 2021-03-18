@@ -10292,6 +10292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492123315}
+  - component: {fileID: 492123316}
   m_Layer: 0
   m_Name: HologramLArmTarget
   m_TagString: Untagged
@@ -10313,6 +10314,22 @@ Transform:
   m_Father: {fileID: 838363578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492123316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492123314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &495080748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7652455808842077842, guid: 1856053aa5eda1f43a5176db32e16f87,
@@ -12367,6 +12384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644790142}
+  - component: {fileID: 644790143}
   m_Layer: 0
   m_Name: HologramLLegTarget
   m_TagString: Untagged
@@ -12388,6 +12406,22 @@ Transform:
   m_Father: {fileID: 1932129517}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644790143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644790141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &650610976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5344869030382976070, guid: 1856053aa5eda1f43a5176db32e16f87,
@@ -17864,6 +17898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025230969}
   - component: {fileID: 1025230970}
+  - component: {fileID: 1025230971}
   m_Layer: 0
   m_Name: HologramVRConstraints
   m_TagString: Untagged
@@ -17904,6 +17939,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Effectors: []
+--- !u!114 &1025230971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025230968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 492123316}
+  - {fileID: 1634448595}
+  - {fileID: 644790143}
+  - {fileID: 2033931856}
+  viewIdField: 3
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1025764054
 GameObject:
   m_ObjectHideFlags: 0
@@ -26643,6 +26704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634448594}
+  - component: {fileID: 1634448595}
   m_Layer: 0
   m_Name: HologramRArmTarget
   m_TagString: Untagged
@@ -26664,6 +26726,22 @@ Transform:
   m_Father: {fileID: 2007321763}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1634448595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634448593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1634494700
 GameObject:
   m_ObjectHideFlags: 0
@@ -33173,6 +33251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033931855}
+  - component: {fileID: 2033931856}
   m_Layer: 0
   m_Name: HologramRLegTarget
   m_TagString: Untagged
@@ -33194,6 +33273,22 @@ Transform:
   m_Father: {fileID: 385660178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2033931856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033931854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &2037264869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4200581910859427464, guid: 1856053aa5eda1f43a5176db32e16f87,
