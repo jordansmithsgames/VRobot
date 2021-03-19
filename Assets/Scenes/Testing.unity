@@ -260,9 +260,9 @@ GameObject:
   - component: {fileID: 4345055}
   - component: {fileID: 4345054}
   - component: {fileID: 4345053}
-  - component: {fileID: 4345052}
   - component: {fileID: 4345050}
   - component: {fileID: 4345049}
+  - component: {fileID: 4345051}
   m_Layer: 0
   m_Name: RLegController
   m_TagString: Untagged
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &4345052
+--- !u!114 &4345051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4345047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 556ffe6dd4a77364daa010eab47d84e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 2069545020}
@@ -8508,9 +8508,9 @@ GameObject:
   - component: {fileID: 381719257}
   - component: {fileID: 381719256}
   - component: {fileID: 381719255}
-  - component: {fileID: 381719262}
   - component: {fileID: 381719260}
   - component: {fileID: 381719259}
+  - component: {fileID: 381719261}
   m_Layer: 0
   m_Name: LArmController
   m_TagString: Untagged
@@ -8640,7 +8640,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &381719262
+--- !u!114 &381719261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8649,7 +8649,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 381719253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 556ffe6dd4a77364daa010eab47d84e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 2069545020}
@@ -8689,11 +8689,11 @@ MonoBehaviour:
   m_AttachEaseInTime: 0.15
   m_MovementType: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 1
@@ -30053,9 +30053,9 @@ GameObject:
   - component: {fileID: 1859570793}
   - component: {fileID: 1859570792}
   - component: {fileID: 1859570791}
-  - component: {fileID: 1859570790}
   - component: {fileID: 1859570788}
   - component: {fileID: 1859570787}
+  - component: {fileID: 1859570789}
   m_Layer: 0
   m_Name: LLegController
   m_TagString: Untagged
@@ -30109,7 +30109,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &1859570790
+--- !u!114 &1859570789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30118,7 +30118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859570785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 556ffe6dd4a77364daa010eab47d84e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 2069545020}
@@ -31506,9 +31506,9 @@ GameObject:
   - component: {fileID: 1949418348}
   - component: {fileID: 1949418346}
   - component: {fileID: 1949418345}
-  - component: {fileID: 1949418347}
   - component: {fileID: 1949418351}
   - component: {fileID: 1949418350}
+  - component: {fileID: 1949418347}
   m_Layer: 0
   m_Name: RArmController
   m_TagString: Untagged
@@ -31568,7 +31568,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1949418343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 556ffe6dd4a77364daa010eab47d84e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 2069545020}
