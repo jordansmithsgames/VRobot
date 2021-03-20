@@ -4,64 +4,67 @@ using UnityEngine;
 
 public class EnemyBodyDestroy : MonoBehaviour
 {
-    public bool hr, hl, chest;
+    public bool handRight, handLeft; //Debug to make hands explode (Not necessary in build)
 
-    public GameObject hr_, hl_, chest_, katana;
-    public GameObject hr_re, hl_re, chest_re;
+    public GameObject hrOriginal, hlOriginal, katana; //Base model of Hands and Katana
+    public GameObject hrDestroyed, hlDestroyed; //Replacement for destroyed hands
 
-    private string hrStatus, hlStatus, chStatus;
+    private bool hrStatus, hlStatus; //To check if hands are destroyed or not
 
     public Animator anim;
+
+    public GameObject L_sparks, R_sparks;
 
     // Start is called before the first frame update
     void Start()
     {
-        hrStatus = "Working";
-        hlStatus = "Working";
-        chStatus = "Working";
+        hrStatus = true;
+        hlStatus = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hr_.GetComponent<EnemyHand_Health>().getHealth() == 0 && hrStatus == "Working")
+        if(hrOriginal.GetComponent<EnemyHand_Health>().getHealth() == 0 && hrStatus) //Hand health = 0 + Not Destroyed
         {
-            hr = false;
+            handRight = false;
         }
-        if (!hr)
+        if (!handRight)
         {
             katana.transform.localScale = new Vector3(0, 0, 0);
-            destroySetup(hr_, hr_re);
-            hr = true;
-            hrStatus = "Destroyed";
-            anim.SetBool("RHand", false);
+            destroySetup(hrOriginal, hrDestroyed);
+            handRight = true;
+            hrStatus = false;
+            anim.SetBool("RHand", false); //To pull animation state back from drawn weapon
+            R_sparks.SetActive(true);
             anim.SetTrigger("Stagger");
         }
 
-        if(hl_.GetComponent<EnemyHand_Health>().getHealth() == 0 && hlStatus == "Working")
+        if(hlOriginal.GetComponent<EnemyHand_Health>().getHealth() == 0 && hlStatus)
         {
-            hl = false;
+            handLeft = false;
         }
-        if (!hl)
+        if (!handLeft)
         {
-            destroySetup(hl_, hl_re);
-            hl = true;
-            hlStatus = "Destroyed";
+            destroySetup(hlOriginal, hlDestroyed);
+            handLeft = true;
+            hlStatus = false;
+            L_sparks.SetActive(true);
             anim.SetTrigger("Stagger");
         }
     }
-    public void destroySetup(GameObject pre, GameObject post)
+    public void destroySetup(GameObject pre, GameObject post) //Replace hand with breaking hand
     {
         pre.transform.localScale = new Vector3(0, 0, 0);
         post.SetActive(true);
-        post.transform.parent = GameObject.Find("DestroyedParent").transform;
+        post.transform.parent = GameObject.Find("DestroyedParent").transform; //Places destroyed hand pieces in World Space
     }
 
-    public string getRightStatus()
+    public bool getRightStatus()
     {
         return hrStatus;
     }
-    public string getLeftStatus()
+    public bool getLeftStatus()
     {
         return hlStatus;
     }

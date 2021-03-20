@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+/* | Buttons for Animations |
+ * | Up Arrow = Move        |
+ * | D = draw weapon        |
+ * | P = Attack             |
+ * | O = Alternate Attack   |
+ * | S = Stagger            |
+ */
+
 public class EnemyMovement : MonoBehaviour
 {
     public float playerSpeed;
     public float walkSpeed = 1f;
     public float mouseSensitivity = 2f;
     private bool isMoving = false;
-    private float yRot;
 
-    public bool destroyed = true;
+    public bool destroyed = true; //Both arms destroyed?
 
-    private bool drawn = false;
+    private bool drawn = false; //Is weapon drawn?
 
     private Animator anim;
     private Rigidbody rigidBody;
@@ -34,21 +42,9 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         isMoving = false;
-        /*
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
-        {
-            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
-            rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
-            isMoving = true;
-        }
-        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
-            rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
-            isMoving = true;
-        }
-        */
-        if (Keyboard.current.upArrowKey.isPressed)
+        
+
+        if (Keyboard.current.upArrowKey.isPressed) //Make enemy move forward
         {
             rigidBody.velocity += transform.forward * playerSpeed;
             isMoving = true;
@@ -58,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
             rigidBody.velocity = new Vector3(0, 0, 0);
         }
 
-        if(Keyboard.current.leftArrowKey.isPressed)
+        if(Keyboard.current.leftArrowKey.isPressed) //Make enemy move sideways
         {
             rigidBody.velocity += transform.right * playerSpeed;
             isMoving = true;
@@ -68,47 +64,25 @@ public class EnemyMovement : MonoBehaviour
             rigidBody.velocity = new Vector3(0,0,0);
         }
 
-        if(Keyboard.current.pKey.isPressed && drawn == false)
-        {
-            anim.SetTrigger("Attack");
-        }
-        else if (Keyboard.current.pKey.isPressed && drawn == true)
-        {
-            anim.SetTrigger("SwordAttack");
-        }
-        else if (Keyboard.current.oKey.isPressed && drawn == true)
-        {
-            anim.SetTrigger("SwordAttack_2");
-        }
-        if(mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Destroyed")
-        {
-            drawn = false;
-        }
-        if (Keyboard.current.dKey.isPressed && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Working")
+        if (Keyboard.current.pKey.isPressed && drawn == false) { anim.SetTrigger("Attack");} //Basic punch attack
+        else if (Keyboard.current.pKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack");} //Sword attack if weapon drawn
+        else if (Keyboard.current.oKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack_2");} //Alternative sword attack
+
+        if(!mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus()){drawn = false;} //If arm breaks, reset to sheathed weapon
+
+        if (Keyboard.current.dKey.isPressed && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus()) //Draw weapon
         {
             anim.SetTrigger("Draw");
             drawn = true;
         }
 
-        if (Keyboard.current.sKey.isPressed && drawn == true)
-        {
-            anim.SetTrigger("Stagger_Sword");
-        }
-        else if(Keyboard.current.sKey.isPressed && drawn == false)
-        {
-            anim.SetTrigger("Stagger");
-        }
+        if (Keyboard.current.sKey.isPressed && drawn == true){anim.SetTrigger("Stagger_Sword");} //Stagger with sword
+        else if(Keyboard.current.sKey.isPressed && drawn == false){anim.SetTrigger("Stagger");} //Stagger without sword
 
-        if (!drawn)
-        {
-            anim.SetBool("Walk", isMoving);
-        }
-        else if (drawn)
-        {
-            anim.SetBool("Walk_Sword", isMoving);
-        }
+        if (!drawn){anim.SetBool("Walk", isMoving);} //Walk regular
+        else if (drawn){anim.SetBool("Walk_Sword", isMoving);} //Walk with sword
 
-        if(mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() == "Destroyed" && mainEnemy.GetComponent<EnemyBodyDestroy>().getLeftStatus() == "Destroyed" && destroyed == true)
+        if(!mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() && !mainEnemy.GetComponent<EnemyBodyDestroy>().getLeftStatus() && destroyed)//Triggers defeat animation
         {
             anim.SetTrigger("Defeat");
             destroyed = false;
