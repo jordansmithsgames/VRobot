@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: ec293e5a10dc6954b8b2d1a3daaa4ba8
+guid: 0bbd5c63a4f301d4385ba94c5d0b0a82
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Building4_Main
-    second: {fileID: 2100000, guid: cb3ed301f9bd2f34d9ac398ae393ae2c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Building4_Windows
-    second: {fileID: 2100000, guid: 9517985814125d742a5afb5475fdf04d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -44,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 17
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -91,7 +81,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.17
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
