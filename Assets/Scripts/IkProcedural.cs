@@ -5,21 +5,22 @@ using UnityEngine;
 public class IkProcedural : MonoBehaviour
 {
     float footSpace;
+    float lerp;
+
+    public Vector3 trackingRotationOffset;
+
     [SerializeField] float speed = 1;
     [SerializeField] float stepDistance = 4;
     [SerializeField] float stepLength = 4;
     [SerializeField] float stepHeight = 1;
-    float lerp;
+    [SerializeField] float bodyHeight = 1;
     [SerializeField] GameObject body;
-
     [SerializeField] IkProcedural otherFoot;
     [SerializeField] Vector3 footOffset;
-
+    [SerializeField] LayerMask terrainLayer = default;
     Vector3 oldPosition, currentPosition, newPosition;
     Vector3 oldNormal, currentNormal, newNormal;
-
-    [SerializeField] LayerMask terrainLayer = default;
-    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class IkProcedural : MonoBehaviour
         transform.position = currentPosition;
         transform.up = currentNormal;
 
+        Map();
 
         Ray ray = new Ray(body.transform.position + (body.transform.forward * footSpace), Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit info, 50, terrainLayer.value))
@@ -73,5 +75,10 @@ public class IkProcedural : MonoBehaviour
     public bool IsMoving()
     {
         return lerp < 1;
+    }
+
+    public void Map()
+    {
+        gameObject.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(trackingRotationOffset);
     }
 }
