@@ -7640,7 +7640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e689f1e7f6d206448eb84bd275db341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceCountMax: 2
+  pieceCountMax: 20
   particleCountMax: 20
 --- !u!4 &340074238
 Transform:
