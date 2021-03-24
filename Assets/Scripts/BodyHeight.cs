@@ -7,12 +7,13 @@ public class BodyHeight : MonoBehaviour
     public GameObject leftLegTarget;
     public GameObject rightLegTarget;
     public GameObject body;
-    public float desiredHeight;
+    public float height;
+    public float bobSmoothness = 10;
     public LayerMask terrainLayer;
 
     Vector3 centerMag;
 
-    float heightDifference;
+    float bobValue;
     float originalBodyHeight;
     float terrainH;
 
@@ -27,11 +28,11 @@ public class BodyHeight : MonoBehaviour
     {      
         centerMag = leftLegTarget.transform.position + rightLegTarget.transform.position;
 
-        heightDifference = originalBodyHeight + centerMag.y;
+        bobValue = (originalBodyHeight + centerMag.y) / bobSmoothness;
 
         //Debug.Log("Feet Avg height " + centerMag.y);
 
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, heightDifference/10 + terrainHeight(), gameObject.transform.position.z);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, (bobValue + terrainHeight()) - height, gameObject.transform.position.z);
     }
 
     public float terrainHeight()

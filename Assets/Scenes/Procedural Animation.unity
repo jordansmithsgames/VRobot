@@ -8443,7 +8443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingRotationOffset: {x: 7, y: -90, z: 90}
   speed: 1
-  stepDistance: 4
+  stepDistance: 3
   stepLength: 1
   stepHeight: 5
   bodyHeight: 1
@@ -11001,7 +11001,8 @@ MonoBehaviour:
   leftLegTarget: {fileID: 473418822}
   rightLegTarget: {fileID: 979073846}
   body: {fileID: 0}
-  desiredHeight: 0
+  height: 0
+  bobSmoothness: 10
   terrainLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -16179,7 +16180,6 @@ GameObject:
   m_Component:
   - component: {fileID: 979073847}
   - component: {fileID: 979073848}
-  - component: {fileID: 979073849}
   m_Layer: 0
   m_Name: LegConstraintR_target
   m_TagString: Untagged
@@ -16215,7 +16215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingRotationOffset: {x: 7, y: -90, z: 90}
   speed: 1
-  stepDistance: 4
+  stepDistance: 3
   stepLength: 1
   stepHeight: 5
   bodyHeight: 1
@@ -16225,21 +16225,6 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &979073849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979073846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d4cfc7eeecb304a9a0515d057dbbee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 979073846}
-  trackingPositionOffset: {x: 0, y: 0, z: 0}
-  trackingRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &980487375
 GameObject:
   m_ObjectHideFlags: 0
@@ -36868,7 +36853,8 @@ MonoBehaviour:
   leftLegTarget: {fileID: 473418822}
   rightLegTarget: {fileID: 979073846}
   body: {fileID: 0}
-  desiredHeight: 0
+  height: 0
+  bobSmoothness: 10
   terrainLayer:
     serializedVersion: 2
     m_Bits: 512
