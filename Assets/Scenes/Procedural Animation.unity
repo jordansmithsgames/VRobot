@@ -36853,7 +36853,7 @@ MonoBehaviour:
   leftLegTarget: {fileID: 473418822}
   rightLegTarget: {fileID: 979073846}
   body: {fileID: 0}
-  height: 0
+  height: 2
   bobSmoothness: 10
   terrainLayer:
     serializedVersion: 2
