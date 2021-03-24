@@ -46,6 +46,6 @@ public class BodyHeight : MonoBehaviour
         }
         Debug.Log("TerrainHeight is: " + terrainH);
         Debug.DrawRay(gameObject.transform.position, Vector3.down, Color.white);
-        return terrainH;
+        return terrainH * 2;
     }
 }
