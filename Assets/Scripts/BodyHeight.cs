@@ -44,7 +44,7 @@ public class BodyHeight : MonoBehaviour
         {
             terrainH = hit.point.y;
         }
-        Debug.Log("TerrainHeight is: " + terrainH);
+        //Debug.Log("TerrainHeight is: " + terrainH);
         Debug.DrawRay(gameObject.transform.position, Vector3.down, Color.white);
         return terrainH * 2;
     }
