@@ -41,6 +41,7 @@ public class IkProcedural : MonoBehaviour
         Ray ray = new Ray(body.transform.position + (body.transform.forward * footSpace), Vector3.down);
         if (Physics.Raycast(ray, out RaycastHit info, 50, terrainLayer.value))
         {
+            // Remove this Distance function and detect only in local z direction
             if (Vector3.Distance(newPosition, info.point) > stepDistance && !otherFoot.IsMoving() && lerp >= 1)
             {
                 lerp = 0;
