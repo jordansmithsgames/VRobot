@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("IgnoreCollision"))
         {
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
             Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
         }
     }
