@@ -14,25 +14,31 @@ using UnityEngine.InputSystem;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float playerSpeed;
-    public float walkSpeed = 1f;
-    public float mouseSensitivity = 2f;
+    public float MoveSpeed = 1f;
+    public float MaxDist = 10;
+    public float MinDist = 5;
     private bool isMoving = false;
+
+    public int Health = 100;
 
     public bool destroyed = true; //Both arms destroyed?
 
     private bool drawn = false; //Is weapon drawn?
+
+    public bool dealDamage;
 
     private Animator anim;
     private Rigidbody rigidBody;
 
     public GameObject mainEnemy;
 
+    private GameObject PlayerRobot;
+
     // Use this for initialization
     void Start()
     {
+        PlayerRobot = GameObject.Find("User Robot");
 
-        playerSpeed = walkSpeed;
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
 
@@ -41,9 +47,38 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        isMoving = false;
-        
+        transform.LookAt(PlayerRobot.transform);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        {
+            if (Vector3.Distance(transform.position, PlayerRobot.transform.position) >= MinDist && Vector3.Distance(transform.position, PlayerRobot.transform.position) <= 100)
+            {
+                isMoving = true;
+                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                isMoving = false;
+            }
+        }
 
+        if(Vector3.Distance(transform.position,PlayerRobot.transform.position) < MaxDist && !drawn)
+        {
+            anim.SetTrigger("Attack");
+        }
+        else if (Vector3.Distance(transform.position, PlayerRobot.transform.position) < (MaxDist) && Vector3.Distance(transform.position, PlayerRobot.transform.position) > 4 && drawn)
+        {
+            anim.SetTrigger("SwordAttack");
+        }
+        else if (Vector3.Distance(transform.position, PlayerRobot.transform.position) < (4) && drawn)
+        {
+            anim.SetTrigger("SwordAttack_2");
+        }
+
+        if (Health <= 50 && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn) {
+            anim.SetTrigger("Draw");
+            drawn = true;
+        }
+        /*
         if (Keyboard.current.upArrowKey.isPressed) //Make enemy move forward
         {
             rigidBody.velocity += transform.forward * playerSpeed;
@@ -53,15 +88,18 @@ public class EnemyMovement : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(0, 0, 0);
         }
-
-        if(Keyboard.current.leftArrowKey.isPressed) //Make enemy move sideways
+        */
+        if (dealDamage)
         {
-            rigidBody.velocity += transform.right * playerSpeed;
-            isMoving = true;
-        }
-        else
-        {
-            rigidBody.velocity = new Vector3(0,0,0);
+            Health = Health - 10;
+            if (!drawn)
+            {
+                anim.SetTrigger("Stagger");
+                isMoving = false;
+            }
+            else
+                anim.SetTrigger("Stagger_Sword"); isMoving = false;
+            dealDamage=!dealDamage;
         }
 
         if (Keyboard.current.pKey.isPressed && drawn == false) { anim.SetTrigger("Attack");} //Basic punch attack
