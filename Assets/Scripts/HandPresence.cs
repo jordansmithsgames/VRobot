@@ -9,6 +9,7 @@ public class HandPresence : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;
     public List<GameObject> controllerPrefabs;
     public GameObject handModelPrefab;
+    public bool grabbing;
     
     private InputDevice targetDevice;
     private GameObject spawnedController;
@@ -52,23 +53,32 @@ public class HandPresence : MonoBehaviour
 
     void UpdateHandAnimation()
     {
+        bool triggering, gripping;
+
         if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
             handAnimator.SetFloat("Trigger", triggerValue);
+            triggering = true;
         }
         else
         {
             handAnimator.SetFloat("Trigger", 0);
+            triggering = false;
         }
 
         if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
         {
             handAnimator.SetFloat("Grip", gripValue);
+            gripping = false;
         }
         else
         {
             handAnimator.SetFloat("Grip", 0);
+            gripping = false;
         }
+
+        if (triggering || gripping) grabbing = true;
+        else grabbing = false;
     }
 
     // Update is called once per frame

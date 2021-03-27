@@ -92157,6 +92157,7 @@ MonoBehaviour:
   controllerPrefabs: []
   handModelPrefab: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
     type: 3}
+  grabbing: 0
 --- !u!1 &5879427935849818705
 GameObject:
   m_ObjectHideFlags: 0
@@ -92222,6 +92223,7 @@ MonoBehaviour:
   controllerPrefabs: []
   handModelPrefab: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
     type: 3}
+  grabbing: 0
 --- !u!4 &5879427937444823210
 Transform:
   m_ObjectHideFlags: 0
@@ -99114,6 +99116,7 @@ GameObject:
   - component: {fileID: 7193427808020886443}
   - component: {fileID: 7193427808020886444}
   - component: {fileID: 7193427808020886442}
+  - component: {fileID: 7193427808020886447}
   m_Layer: 0
   m_Name: LLegController
   m_TagString: IgnoreCollision
@@ -99121,6 +99124,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7193427808020886447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193427808020886446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6242105073d1245a0be4dedb7afa57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 7193427809195019393}
+  grabbing: 0
 --- !u!4 &7193427808028176160
 Transform:
   m_ObjectHideFlags: 0
@@ -111039,6 +111056,7 @@ GameObject:
   - component: {fileID: 7193427809389572885}
   - component: {fileID: 7193427809389572886}
   - component: {fileID: 7193427809389572884}
+  - component: {fileID: 7193427809389572889}
   m_Layer: 0
   m_Name: RLegController
   m_TagString: IgnoreCollision
@@ -111046,6 +111064,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7193427809389572889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193427809389572888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6242105073d1245a0be4dedb7afa57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 7193427808642656139}
+  grabbing: 0
 --- !u!33 &7193427809389572911
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -111344,6 +111376,7 @@ GameObject:
   - component: {fileID: 7193427809416148447}
   - component: {fileID: 7193427809416148444}
   - component: {fileID: 7193427809416148445}
+  - component: {fileID: 7193427809416148417}
   m_Layer: 0
   m_Name: LLegControlBounds
   m_TagString: Untagged
@@ -111351,6 +111384,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7193427809416148417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193427809416148416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a389d34fc9ddef4c96531ff9c75fe02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userRobot: {fileID: 7193427807700610659}
+  rigController: {fileID: 7193427808020886446}
+  rigControllerInit: {fileID: 1325991532}
+  hand: {fileID: 0}
+  rotationSpeed: 15
 --- !u!33 &7193427809416148444
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113144,8 +113194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userRobot: {fileID: 7193427807700610659}
-  controller: {fileID: 7193427809389572888}
-  controllerInit: {fileID: 499657209}
+  rigController: {fileID: 7193427809389572888}
+  rigControllerInit: {fileID: 499657209}
   walkingSpeed: 1
 --- !u!4 &7193427809623632372
 Transform:
