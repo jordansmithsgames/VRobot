@@ -1,12 +1,52 @@
 fileFormatVersion: 2
-guid: aac851cc82495be4bbeb93dd1acb167b
+guid: 19f364f18151fac4c9bf913cc0b9ff48
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Defeat
-  externalObjects: {}
+    second: Draw
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Katana_Texture
+    second: {fileID: 2100000, guid: 24c0dedb99f805a41b4f1e1304164938, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_Chest
+    second: {fileID: 2100000, guid: 783351211282d7a49a1f88d264ab5843, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_ChestMain
+    second: {fileID: 2100000, guid: 759b3d8c7eb868f40801505208623811, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_Extra
+    second: {fileID: 2100000, guid: 1ce8b621cdf2ad24e919f87779b2b873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_Hand
+    second: {fileID: 2100000, guid: fdc96fae21e69724aa8271cc4a999052, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_Head
+    second: {fileID: 2100000, guid: 3c5d32c1ac6a65d43835655cd5cf025b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_HeadParts
+    second: {fileID: 2100000, guid: b963a14f0302a554b9f1aa807b4da784, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_pos1_Robot_Leg
+    second: {fileID: 2100000, guid: de1868540febdc843a3867d3834d80ba, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -15,7 +55,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleCurves: 0
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -35,11 +75,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Defeat
+      name: Draw
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 250
+      firstFrame: 1
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -63,7 +103,7 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 30
@@ -72,9 +112,9 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

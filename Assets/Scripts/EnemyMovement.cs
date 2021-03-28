@@ -54,6 +54,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 isMoving = true;
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+                
             }
             else
             {
@@ -74,7 +75,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("SwordAttack_2");
         }
 
-        if (Health <= 50 && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn) {
+        if (Health <= 50 && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn) {
             anim.SetTrigger("Draw");
             drawn = true;
         }
@@ -106,9 +107,9 @@ public class EnemyMovement : MonoBehaviour
         else if (Keyboard.current.pKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack");} //Sword attack if weapon drawn
         else if (Keyboard.current.oKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack_2");} //Alternative sword attack
 
-        if(!mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus()){drawn = false;} //If arm breaks, reset to sheathed weapon
+        if(!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus()){drawn = false;} //If arm breaks, reset to sheathed weapon
 
-        if (Keyboard.current.dKey.isPressed && mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus()) //Draw weapon
+        if (Keyboard.current.dKey.isPressed && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus()) //Draw weapon
         {
             anim.SetTrigger("Draw");
             drawn = true;
@@ -120,7 +121,7 @@ public class EnemyMovement : MonoBehaviour
         if (!drawn){anim.SetBool("Walk", isMoving);} //Walk regular
         else if (drawn){anim.SetBool("Walk_Sword", isMoving);} //Walk with sword
 
-        if(!mainEnemy.GetComponent<EnemyBodyDestroy>().getRightStatus() && !mainEnemy.GetComponent<EnemyBodyDestroy>().getLeftStatus() && destroyed)//Triggers defeat animation
+        if(!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !gameObject.GetComponent<EnemyBodyDestroy>().getLeftStatus() && destroyed)//Triggers defeat animation
         {
             anim.SetTrigger("Defeat");
             destroyed = false;
