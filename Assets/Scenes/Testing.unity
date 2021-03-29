@@ -1798,7 +1798,7 @@ Transform:
   - {fileID: 2069545021}
   - {fileID: 340074238}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247041044 stripped
 GameObject:
@@ -26789,6 +26789,11 @@ PrefabInstance:
       propertyPath: destructionHandler
       value: 
       objectReference: {fileID: 340074236}
+    - target: {fileID: 3898485097810534098, guid: 56d2234c93cbbcd4ea9c107ae0bf3ef7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6871227704125281386, guid: 56d2234c93cbbcd4ea9c107ae0bf3ef7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -111399,7 +111404,6 @@ MonoBehaviour:
   userRobot: {fileID: 7193427807700610659}
   rigController: {fileID: 7193427808020886446}
   rigControllerInit: {fileID: 1325991532}
-  hand: {fileID: 0}
   rotationSpeed: 15
 --- !u!33 &7193427809416148444
 MeshFilter:
