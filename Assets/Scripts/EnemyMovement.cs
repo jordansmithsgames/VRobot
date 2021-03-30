@@ -64,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
 
         if(Vector3.Distance(transform.position,PlayerRobot.transform.position) < MaxDist && !drawn)
         {
+
             anim.SetTrigger("Attack");
         }
         else if (Vector3.Distance(transform.position, PlayerRobot.transform.position) < (MaxDist) && Vector3.Distance(transform.position, PlayerRobot.transform.position) > 4 && drawn)
