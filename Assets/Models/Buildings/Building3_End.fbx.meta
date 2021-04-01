@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building3_Floor
-    second: {fileID: 2100000, guid: b400dca05c1889a4fbb9d2311637f5ae, type: 2}
+    second: {fileID: 2100000, guid: c2e658ebab5f1d842a056c2fdadb43df, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building3_Tip
-    second: {fileID: 2100000, guid: 3f8a12264112b924fafe4b191fd39f60, type: 2}
+    second: {fileID: 2100000, guid: 5b908e71f1e2c8149be17e6795c5d19d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

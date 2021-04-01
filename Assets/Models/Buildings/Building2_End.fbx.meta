@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building2_End_Main
-    second: {fileID: 2100000, guid: 74f05c508d3fd7447804194febcf6677, type: 2}
+    second: {fileID: 2100000, guid: cd924f08f4aae044fbd95d236d67e4c2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building2_End_Office
-    second: {fileID: 2100000, guid: e5cd88b8845e6994db4b4d2e09b2045d, type: 2}
+    second: {fileID: 2100000, guid: 0a314cd4b4334cb458fc6b49b58612a5, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

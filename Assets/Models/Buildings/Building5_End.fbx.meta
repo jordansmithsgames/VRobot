@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building5_End_Glass
-    second: {fileID: 2100000, guid: b30a463290b423b48b1ce2ddc9beb036, type: 2}
+    second: {fileID: 2100000, guid: 7302e3ab7786cd54ca8ed611d88cb857, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Building5_End_Main
-    second: {fileID: 2100000, guid: 9627ec0b58c6b884ba4919d12a88dbde, type: 2}
+    second: {fileID: 2100000, guid: 54c47060c3e8972448196ce6ca6628f8, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
