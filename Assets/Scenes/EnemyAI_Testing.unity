@@ -30777,8 +30777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce689b2aa98024fbaa2d8b5763ebf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7193427807583042728}
+  hand: 0
   target: {fileID: 7193427808221335189}
+  controller: {fileID: 7193427807583042728}
   far: 0
 --- !u!4 &7193427807802960598
 Transform:
@@ -31342,8 +31343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ce689b2aa98024fbaa2d8b5763ebf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7193427809230269722}
+  hand: 0
   target: {fileID: 7193427808256258991}
+  controller: {fileID: 7193427809230269722}
   far: 0
 --- !u!33 &7193427807900236808
 MeshFilter:
@@ -46663,8 +46665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userRobot: {fileID: 7193427807700610659}
-  rigController: {fileID: 0}
-  rigControllerInit: {fileID: 0}
+  target: {fileID: 0}
   walkingSpeed: 1
 --- !u!4 &7193427809623632372
 Transform:
