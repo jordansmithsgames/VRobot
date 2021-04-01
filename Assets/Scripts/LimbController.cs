@@ -4,53 +4,39 @@ using UnityEngine;
 
 public class LimbController : MonoBehaviour
 {
-    public GameObject controller;
-    public GameObject target;
+    enum Hand { RightHand, LeftHand}
+    [SerializeField] Hand hand;
+    public GameObject target, controller;
     public bool far;
+    private string tag;
 
     void Start()
     {
-        // Initialize to be at same location
-        //controller.transform.position = transform.position;
-        //target.transform.position = transform.position;
         far = true;
+        tag = hand == Hand.RightHand ? "RightHand" : "LeftHand";
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == controller)
-        {
-            far = false;
-            other.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log("Controller in the control zone!");
-        }
+        if (other.gameObject.CompareTag(tag)) far = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == controller)
+        if (other.gameObject.CompareTag(tag))
         {
-            if (other.bounds.Contains(controller.transform.position))
+            controller = other.gameObject;
+            if (other.bounds.Contains(other.gameObject.transform.position))
             {
                 far = false;
-                other.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-                target.transform.position = controller.transform.position;
+                target.transform.position = other.gameObject.transform.position;
             }
-            else
-            {
-                far = true;
-                other.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-            }
+            else far = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == controller)
-        {
-            far = true;
-            other.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-            Debug.Log("Controller has left the control zone!");
-        }
+        if (other.gameObject.CompareTag(tag)) far = true;
     }
 }

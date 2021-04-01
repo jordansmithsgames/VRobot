@@ -17,15 +17,11 @@ public class RotationController : MonoBehaviour
 
     private void Update()
     {
-        //if (!rigController) rigController = GameObject.Find(rigControllerName);
         if (inBounds)
         {
             float offset = rigController.transform.position.x - rigControllerInit.transform.position.x;
-            //Debug.Log("Now: " + rigController.transform.position.y + ", Then: " + rigControllerInit.transform.position.y);
-            Debug.Log(offset);
             userRobot.transform.Rotate(0, -offset * rotationSpeed, 0);
         }
-        //else if (rigController.transform.parent.name == initParent) ResetController();
     }
 
     private void OnTriggerEnter(Collider other)
