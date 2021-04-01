@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
-    public Transform spawnpoint1, spawnpoint2;
+    public Transform spawnpoint1, spawnpoint2, controlRoom;
     public GameObject xrRig;
     private GameObject spawnedPlayerPrefab;
 
@@ -17,6 +17,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         {
             Debug.Log("Player 1 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint1.position, spawnpoint1.rotation);
+            spawnedPlayerPrefab.transform.parent = controlRoom;
             xrRig.transform.position = spawnedPlayerPrefab.transform.position;
             xrRig.transform.rotation = spawnedPlayerPrefab.transform.rotation;
         }
@@ -26,6 +27,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         {
             Debug.Log("Player 2 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint2.position, spawnpoint2.rotation);
+            spawnedPlayerPrefab.transform.parent = controlRoom;
             xrRig.transform.position = spawnedPlayerPrefab.transform.position;
             xrRig.transform.rotation = spawnedPlayerPrefab.transform.rotation;
         }
