@@ -18,13 +18,15 @@ public class LimbController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(tag)) far = false;
+        if (other.gameObject.name.Contains(tag)) far = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag(tag))
+        Debug.Log(other.gameObject.name + " is touching the control zone!");
+        if (other.gameObject.name.Contains(tag))
         {
+            Debug.Log(other.gameObject.name + " is touching the control zone!");
             controller = other.gameObject;
             if (other.bounds.Contains(other.gameObject.transform.position))
             {
@@ -37,6 +39,6 @@ public class LimbController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(tag)) far = true;
+        if (other.gameObject.name.Contains(tag)) far = true;
     }
 }

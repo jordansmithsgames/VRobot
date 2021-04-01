@@ -4,52 +4,43 @@ using UnityEngine;
 
 public class RotationController : MonoBehaviour
 {
-    [SerializeField] GameObject userRobot, rigController, rigControllerInit;
-    [SerializeField] float rotationSpeed = 15.0f;
-    private string initParent, rigControllerName;
+    [SerializeField] GameObject userRobot, target;
+    [SerializeField] float rotationSpeed = 15f;
     private bool inBounds;
+    private GameObject leftHand;
+    private Vector3 initPos;
 
     private void Start()
     {
-        initParent = rigController.transform.parent.name;
-        rigControllerName = rigController.name;
+        initPos = target.transform.localPosition;
     }
 
     private void Update()
     {
         if (inBounds)
         {
-            float offset = rigController.transform.position.x - rigControllerInit.transform.position.x;
-            userRobot.transform.Rotate(0, -offset * rotationSpeed, 0);
+            target.transform.position = leftHand.transform.position;
+            float offset = target.transform.localPosition.z - initPos.z;
+            Debug.Log("Rotation Offset: " + offset);
+            userRobot.transform.Rotate(0, offset * rotationSpeed * Time.deltaTime, 0);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == rigController)
+        if (other.gameObject.name.Contains("LeftHand"))
         {
             inBounds = true;
-            ColorController(Color.red);
+            leftHand = other.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == rigController)
+        if (other.gameObject.name.Contains("LeftHand"))
         {
             inBounds = false;
-            ColorController(Color.blue);
+            leftHand = null;
         }
-    }
-
-    private void ResetController()
-    {
-        rigController.transform.position = rigControllerInit.transform.position;
-        ColorController(Color.red);
-    }
-
-    private void ColorController(Color color)
-    {
-        rigController.GetComponent<MeshRenderer>().material.color = color;
     }
 }
