@@ -4,33 +4,43 @@ using UnityEngine;
 
 public class TranslationController : MonoBehaviour
 {
-    [SerializeField] GameObject userRobot, target;//, rigController;
+    [SerializeField] GameObject userRobot, target;
     [SerializeField] float walkingSpeed = 1.0f;
     private bool inBounds;
+    private GameObject rightHand;
     private Vector3 initPos;
 
     private void Start()
     {
-        initPos = target.transform.position;
+        initPos = target.transform.localPosition;
     }
 
     private void Update()
     {
         if (inBounds)
         {
-            float offset = target.transform.position.y - initPos.y;
-            Debug.Log("Offset: " + offset);
-            userRobot.transform.Translate(-offset * walkingSpeed, 0, 0);
+            target.transform.position = rightHand.transform.position;
+            float offset = target.transform.localPosition.y - initPos.y;
+            // Debug.Log("Offset: " + offset);
+            userRobot.transform.Translate(-offset * walkingSpeed * Time.deltaTime, 0, 0);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == target) inBounds = true;
+        if (other.gameObject.name.Contains("RightHand"))
+        {
+            inBounds = true;
+            rightHand = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == target) inBounds = false;
+        if (other.gameObject.name.Contains("RightHand"))
+        {
+            inBounds = false;
+            rightHand = null;
+        }
     }
 }
