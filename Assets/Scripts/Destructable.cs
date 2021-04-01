@@ -29,7 +29,7 @@ public class Destructable : MonoBehaviour
             GameObject piece;
             GameObject particle;
             piece = collision.gameObject;
-            //piece.transform.root.GetComponent<LODKinda>().hit = true;
+            
          
             //Check if object has already been hit
             if (piece.GetComponent<Rigidbody>().isKinematic == true)
@@ -43,8 +43,9 @@ public class Destructable : MonoBehaviour
             // Make objects move
             piece.GetComponent<Rigidbody>().useGravity = true;
             piece.GetComponent<Rigidbody>().isKinematic = false;
-            
+            piece.transform.root.GetComponent<LODKinda>().hit = true;
         }
+
     }
 
     public void queueHandler(GameObject destructablePiece, GameObject particleEffect)
