@@ -15,7 +15,8 @@ public class LODKinda : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        fractured.SetActive(false);
+        interior.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,7 +25,10 @@ public class LODKinda : MonoBehaviour
         //Debug.Log(hit);
         if (Vector3.Distance(user.transform.position, gameObject.transform.position) < distance)
         {
-            Debug.Log(hit);
+            unfractured.SetActive(false);
+            interior.SetActive(true);
+            fractured.SetActive(true);
+
         }
     }
 }
