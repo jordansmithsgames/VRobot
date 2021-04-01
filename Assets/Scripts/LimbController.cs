@@ -16,29 +16,26 @@ public class LimbController : MonoBehaviour
         tag = hand == Hand.RightHand ? "RightHand" : "LeftHand";
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.name.Contains(tag)) far = false;
+        if (!far)  target.transform.position = controller.transform.position;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name + " is touching the control zone!");
         if (other.gameObject.name.Contains(tag))
         {
-            Debug.Log(other.gameObject.name + " is touching the control zone!");
+            far = false;
             controller = other.gameObject;
-            if (other.bounds.Contains(other.gameObject.transform.position))
-            {
-                far = false;
-                target.transform.position = other.gameObject.transform.position;
-            }
-            else far = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name.Contains(tag)) far = true;
+        if (other.gameObject.name.Contains(tag))
+        {
+            far = true;
+            controller = null;
+        }
     }
 }
