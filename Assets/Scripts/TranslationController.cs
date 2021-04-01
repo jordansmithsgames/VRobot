@@ -4,56 +4,33 @@ using UnityEngine;
 
 public class TranslationController : MonoBehaviour
 {
-    [SerializeField] GameObject userRobot, rigController, rigControllerInit;
+    [SerializeField] GameObject userRobot, target;//, rigController;
     [SerializeField] float walkingSpeed = 1.0f;
-    private string initParent, rigControllerName;
     private bool inBounds;
+    private Vector3 initPos;
 
     private void Start()
     {
-        initParent = rigController.transform.parent.name;
-        rigControllerName = rigController.name;
+        initPos = target.transform.position;
     }
 
     private void Update()
     {
-        if (!rigController) rigController = GameObject.Find(rigControllerName);
         if (inBounds)
         {
-            float offset = rigController.transform.position.y - rigControllerInit.transform.position.y;
-            //Debug.Log("Now: " + rigController.transform.position.y + ", Then: " + rigControllerInit.transform.position.y);
-            Debug.Log(offset);
+            float offset = target.transform.position.y - initPos.y;
+            Debug.Log("Offset: " + offset);
             userRobot.transform.Translate(-offset * walkingSpeed, 0, 0);
         }
-        else if (rigController.transform.parent.name == initParent) ResetController();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == rigController)
-        {
-            inBounds = true;
-            ColorController(Color.red);
-        }
+        if (other.gameObject == target) inBounds = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == rigController)
-        {
-            inBounds = false;
-            ColorController(Color.blue);
-        }
-    }
-
-    private void ResetController()
-    {
-        rigController.transform.position = rigControllerInit.transform.position;
-        ColorController(Color.red);
-    }
-
-    private void ColorController(Color color)
-    {
-        rigController.GetComponent<MeshRenderer>().material.color = color;
+        if (other.gameObject == target) inBounds = false;
     }
 }

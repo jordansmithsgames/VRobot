@@ -10,6 +10,9 @@ TagManager:
   - EnemyRobot
   - Player_Hand
   - IgnoreCollision
+  - Fire
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX
