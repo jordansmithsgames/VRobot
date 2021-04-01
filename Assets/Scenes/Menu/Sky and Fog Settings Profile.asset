@@ -328,7 +328,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1.5
     min: 0
   intensity:
     m_OverrideState: 1
@@ -425,7 +425,7 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 10.4
+    m_Value: 40
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
