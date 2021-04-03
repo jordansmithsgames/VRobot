@@ -54,13 +54,13 @@ public class LODKinda : MonoBehaviour
         }
 
         // if current count is less than 50 % the original, let the building fall down completely
-        if (currentCount < (startCount - 100))
+        if (currentCount < (startCount - 20))
         {
             Debug.Log("currentCount is " + currentCount);
             for (int i = 0; i < childrenCount.Count; i++)
             {
                 // check if it actually has rigidbody, if so make it fall
-                if (childrenCount[i].GetComponent<Rigidbody>() != null)
+                if (childrenCount[i].gameObject != null)
                 {
                     childrenCount[i].GetComponent<Rigidbody>().isKinematic = false;
                     childrenCount[i].GetComponent<Rigidbody>().useGravity = true;
@@ -75,7 +75,7 @@ public class LODKinda : MonoBehaviour
         foreach (Transform child in parent)
         {
             if (child.childCount == 0) childrenCount.Add(child.gameObject);
-            else if (child.childCount > 0) childrenCounter(child, level+1);
+            else if (child.childCount > 0) childrenCounter(child, level+1);          
         }
     }
 }
