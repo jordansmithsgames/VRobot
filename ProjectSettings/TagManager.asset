@@ -13,6 +13,7 @@ TagManager:
   - Fire
   - LeftHand
   - RightHand
+  - Network Player
   layers:
   - Default
   - TransparentFX

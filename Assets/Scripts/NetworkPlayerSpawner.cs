@@ -33,6 +33,12 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Update()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Network Player");
+        foreach(GameObject player in players) player.transform.parent = controlRoom;
+    }
+
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
