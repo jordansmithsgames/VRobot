@@ -12,25 +12,21 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        // Player 1
-        if (PhotonNetwork.IsMasterClient)
+    
+        if (PhotonNetwork.IsMasterClient) // Player 1
         {
             Debug.Log("Player 1 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint1.position, spawnpoint1.rotation);
-            spawnedPlayerPrefab.transform.parent = controlRoom;
-            xrRig.transform.position = spawnedPlayerPrefab.transform.position;
-            xrRig.transform.rotation = spawnedPlayerPrefab.transform.rotation;
         }
-
-        // Player 2
-        else
+        else // Player 2
         {
             Debug.Log("Player 2 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint2.position, spawnpoint2.rotation);
-            spawnedPlayerPrefab.transform.parent = controlRoom;
-            xrRig.transform.position = spawnedPlayerPrefab.transform.position;
-            xrRig.transform.rotation = spawnedPlayerPrefab.transform.rotation;
         }
+
+        spawnedPlayerPrefab.transform.parent = controlRoom;
+        xrRig.transform.position = spawnedPlayerPrefab.transform.position;
+        xrRig.transform.rotation = spawnedPlayerPrefab.transform.rotation;
     }
 
     private void Update()
