@@ -6,36 +6,39 @@ public class LODKinda : MonoBehaviour
 {
     public GameObject unfractured;
     public GameObject fractured;
-    public GameObject interior;
     public GameObject brokenState;
     public GameObject user;
     public float distance;
     public bool hit;
+    public float currentCount;
 
-    int startCount;
+    float startCount;
     List<GameObject> childrenCount = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         //startCount = childrenCounter(fractured.transform);
-        childrenCounter(fractured.transform);
-        Debug.Log("startcount is  " + childrenCount.Count);
+        childrenCounter(fractured.transform, 0);
+        startCount = childrenCount.Count;
+        currentCount = startCount;
+        
         fractured.SetActive(false);
-        interior.SetActive(false);
         brokenState.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        int currentCount = fractured.transform.childCount;
+        Debug.Log("startcount is  " + startCount);
+        
+        // if user robot is close to object, show fractured building and hide unfractured
         if (Vector3.Distance(user.transform.position, gameObject.transform.position) < distance)
         {
-            unfractured.SetActive(false);
-            interior.SetActive(true);
-            fractured.SetActive(true);
-            Debug.Log(hit);
+            if (unfractured) unfractured.SetActive(false);            
+            if (fractured) fractured.SetActive(true);
+
+            //if Destructable script marks hit boolean as true, destroy unfractured building
             if (hit == true)
             {
                 Destroy(unfractured);
@@ -43,41 +46,36 @@ public class LODKinda : MonoBehaviour
             }
         }
 
+        // if user is no longer close to building and never touched it, bring back unfractured building
         if (Vector3.Distance(user.transform.position, gameObject.transform.position) > distance && hit != true)
         {
-            unfractured.SetActive(true);
-            interior.SetActive(false);
-            fractured.SetActive(false);
+            if (unfractured) unfractured.SetActive(true);            
+            if (fractured) fractured.SetActive(false);
         }
 
-        if (currentCount < startCount)
+        // if current count is less than 50 % the original, let the building fall down completely
+        if (currentCount < (startCount - 100))
         {
-            foreach (Transform child in fractured.transform)
+            Debug.Log("currentCount is " + currentCount);
+            for (int i = 0; i < childrenCount.Count; i++)
             {
-                child.GetComponent<Rigidbody>().isKinematic = false;
-                child.GetComponent<Rigidbody>().useGravity = true;
-                ;
+                // check if it actually has rigidbody, if so make it fall
+                if (childrenCount[i].GetComponent<Rigidbody>() != null)
+                {
+                    childrenCount[i].GetComponent<Rigidbody>().isKinematic = false;
+                    childrenCount[i].GetComponent<Rigidbody>().useGravity = true;
+                }
             }
-            //Destroy(fractured);
-            //Destroy(interior);
-            brokenState.SetActive(true);
         }
     }
 
-    private void childrenCounter(Transform parent)
+    private void childrenCounter(Transform parent, int level)
     {
-        childrenCount.Add(parent.gameObject);
-
+        if (level != 0) childrenCount.Add(parent.gameObject);
         foreach (Transform child in parent)
         {
-            if (child.childCount == 0)
-            {
-                childrenCount.Add(child.gameObject);
-            }
-            if (child.childCount > 0)
-            {
-                childrenCounter(child);
-            }
+            if (child.childCount == 0) childrenCount.Add(child.gameObject);
+            else if (child.childCount > 0) childrenCounter(child, level+1);
         }
     }
 }
