@@ -7,7 +7,7 @@ public class LimbController : MonoBehaviour
     enum Hand { RightHand, LeftHand}
     [SerializeField] Hand hand;
     public GameObject target, controller;
-    public bool far;
+    public bool far;    
     private string tag;
 
     void Start()
