@@ -21,10 +21,10 @@ public class RotationController : MonoBehaviour
     {
         if (inBounds)
         {
-            Debug.Log("Responding to player input for translation!");
+            //Debug.Log("Responding to player input for translation!");
             target.transform.position = leftHand.transform.position;
             float offset = target.transform.localPosition.z - initPos.z;
-            Debug.Log("Rotation Offset: " + offset);
+            //Debug.Log("Rotation Offset: " + offset);
             userRobot.transform.Rotate(0, offset * rotationSpeed * Time.deltaTime, 0);
         }
     }
