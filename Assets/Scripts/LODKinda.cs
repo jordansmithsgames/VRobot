@@ -18,7 +18,9 @@ public class LODKinda : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startCount = fractured.transform.childCount;
+        //startCount = childrenCounter(fractured.transform);
+        childrenCounter(fractured.transform);
+        Debug.Log("startcount is  " + childrenCount.Count);
         fractured.SetActive(false);
         interior.SetActive(false);
         brokenState.SetActive(false);
@@ -28,7 +30,6 @@ public class LODKinda : MonoBehaviour
     void Update()
     {
         int currentCount = fractured.transform.childCount;
-
         if (Vector3.Distance(user.transform.position, gameObject.transform.position) < distance)
         {
             unfractured.SetActive(false);
@@ -55,10 +56,28 @@ public class LODKinda : MonoBehaviour
             {
                 child.GetComponent<Rigidbody>().isKinematic = false;
                 child.GetComponent<Rigidbody>().useGravity = true;
-;            }
+                ;
+            }
             //Destroy(fractured);
             //Destroy(interior);
             brokenState.SetActive(true);
+        }
+    }
+
+    private void childrenCounter(Transform parent)
+    {
+        childrenCount.Add(parent.gameObject);
+
+        foreach (Transform child in parent)
+        {
+            if (child.childCount == 0)
+            {
+                childrenCount.Add(child.gameObject);
+            }
+            if (child.childCount > 0)
+            {
+                childrenCounter(child);
+            }
         }
     }
 }
