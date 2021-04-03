@@ -54,7 +54,7 @@ public class LODKinda : MonoBehaviour
         }
 
         // if current count is less than 50 % the original, let the building fall down completely
-        if (currentCount < (startCount - 20))
+        if (currentCount < (startCount / 50))
         {
             Debug.Log("currentCount is " + currentCount);
             for (int i = 0; i < childrenCount.Count; i++)
@@ -66,6 +66,8 @@ public class LODKinda : MonoBehaviour
                     childrenCount[i].GetComponent<Rigidbody>().useGravity = true;
                 }
             }
+            if (fractured) fractured.AddComponent<DestructionRemove>();
+            brokenState.SetActive(true);
         }
     }
 

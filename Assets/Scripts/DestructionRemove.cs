@@ -24,7 +24,6 @@ public class DestructionRemove : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 removed = true;
-            }
-        
+            }    
     }
 }
