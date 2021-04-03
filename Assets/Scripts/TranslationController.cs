@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class TranslationController : MonoBehaviour
 {
+    [SerializeField] PhotonView photonView;
     [SerializeField] GameObject userRobot, target;
     [SerializeField] float walkingSpeed = 1.0f;
     private bool inBounds;
@@ -19,9 +21,9 @@ public class TranslationController : MonoBehaviour
     {
         if (inBounds)
         {
+            Debug.Log("Responding to player input for translation!");
             target.transform.position = rightHand.transform.position;
             float offset = target.transform.localPosition.y - initPos.y;
-            // Debug.Log("Offset: " + offset);
             userRobot.transform.Translate(-offset * walkingSpeed * Time.deltaTime, 0, 0);
         }
     }
@@ -30,6 +32,7 @@ public class TranslationController : MonoBehaviour
     {
         if (other.gameObject.name.Contains("RightHand"))
         {
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
             inBounds = true;
             rightHand = other.gameObject;
         }

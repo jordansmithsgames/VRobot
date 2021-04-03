@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RotationController : MonoBehaviour
 {
+    [SerializeField] PhotonView photonView;
     [SerializeField] GameObject userRobot, target;
     [SerializeField] float rotationSpeed = 15f;
     private bool inBounds;
@@ -19,6 +21,7 @@ public class RotationController : MonoBehaviour
     {
         if (inBounds)
         {
+            Debug.Log("Responding to player input for translation!");
             target.transform.position = leftHand.transform.position;
             float offset = target.transform.localPosition.z - initPos.z;
             Debug.Log("Rotation Offset: " + offset);
@@ -30,6 +33,7 @@ public class RotationController : MonoBehaviour
     {
         if (other.gameObject.name.Contains("LeftHand"))
         {
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
             inBounds = true;
             leftHand = other.gameObject;
         }

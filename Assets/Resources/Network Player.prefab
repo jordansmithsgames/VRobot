@@ -325,9 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7134700425886516116}
-  - component: {fileID: 1415457289412609422}
   - component: {fileID: 3595501704648150979}
-  - component: {fileID: 7153913525768798478}
   - component: {fileID: 8494519842446050892}
   m_Layer: 0
   m_Name: Network Player
@@ -354,34 +352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1415457289412609422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7134700425886516119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 8494519842446050892}
-  - {fileID: 7939809190790725710}
-  - {fileID: 166719725071421944}
-  - {fileID: 8440572393247962565}
-  - {fileID: 4168770691094233282}
-  - {fileID: 3891929246154959470}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &3595501704648150979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,25 +369,6 @@ MonoBehaviour:
   rightHand: {fileID: 3347116328718248181}
   leftHandAnimator: {fileID: 8767096358620503364}
   rightHandAnimator: {fileID: 6658746262142641365}
---- !u!114 &7153913525768798478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7134700425886516119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logLevel: 1
-  ignoreGlobalLogLevel: 0
-  recorderInUse: {fileID: 0}
-  speakerInUse: {fileID: 2600925381660872858}
-  AutoCreateRecorderIfNotFound: 0
-  UsePrimaryRecorder: 1
-  SetupDebugSpeaker: 0
 --- !u!114 &8494519842446050892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +658,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+--- !u!1 &8767096358627929842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8659914104919664367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8767096358628029074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
@@ -716,12 +673,6 @@ Transform:
 --- !u!95 &8767096358620503364 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 109434732388006827, guid: 65847589f926b734d9eaed6e25f0046b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8659914104919664367}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8767096358627929842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
     type: 3}
   m_PrefabInstance: {fileID: 8659914104919664367}
   m_PrefabAsset: {fileID: 0}

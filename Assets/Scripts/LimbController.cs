@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class LimbController : MonoBehaviour
 {
     enum Hand { RightHand, LeftHand}
     [SerializeField] Hand hand;
+    [SerializeField] PhotonView photonView;
     public GameObject target, controller;
-    public bool far;    
+    public bool far;
     private string tag;
 
     void Start()
@@ -18,13 +20,18 @@ public class LimbController : MonoBehaviour
 
     private void Update()
     {
-        if (!far)  target.transform.position = controller.transform.position;
+        if (!far)
+        {
+            Debug.Log("Responding to player input for " + hand + " control!");
+            target.transform.position = controller.transform.position;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains(tag))
         {
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
             far = false;
             controller = other.gameObject;
         }
