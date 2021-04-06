@@ -14,6 +14,7 @@ TagManager:
   - LeftHand
   - RightHand
   - Network Player
+  - UserRobot
   layers:
   - Default
   - TransparentFX

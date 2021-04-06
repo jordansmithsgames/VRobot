@@ -20,11 +20,7 @@ public class LimbController : MonoBehaviour
 
     private void Update()
     {
-        if (!far)
-        {
-            Debug.Log("Responding to player input for " + hand + " control!");
-            target.transform.position = controller.transform.position;
-        }
+        if (!far) target.transform.position = controller.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     public float MinDist = 5;
     private bool isMoving = false;
 
-    public int Health = 100;
+    public int health = 100;
 
     public bool destroyed = true; //Both arms destroyed?
 
@@ -54,7 +54,6 @@ public class EnemyMovement : MonoBehaviour
             {
                 isMoving = true;
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-                
             }
             else
             {
@@ -62,9 +61,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        if(Vector3.Distance(transform.position,PlayerRobot.transform.position) < MaxDist && !drawn)
+        if (Vector3.Distance(transform.position, PlayerRobot.transform.position) < MaxDist && !drawn)
         {
-
             anim.SetTrigger("Attack");
         }
         else if (Vector3.Distance(transform.position, PlayerRobot.transform.position) < (MaxDist) && Vector3.Distance(transform.position, PlayerRobot.transform.position) > 4 && drawn)
@@ -76,39 +74,29 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("SwordAttack_2");
         }
 
-        if (Health <= 50 && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn) {
+        if (health <= 50 && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn)
+        {
             anim.SetTrigger("Draw");
             drawn = true;
         }
-        /*
-        if (Keyboard.current.upArrowKey.isPressed) //Make enemy move forward
-        {
-            rigidBody.velocity += transform.forward * playerSpeed;
-            isMoving = true;
-        }
-        else
-        {
-            rigidBody.velocity = new Vector3(0, 0, 0);
-        }
-        */
+
         if (dealDamage)
         {
-            Health = Health - 10;
+            health -= 10;
             if (!drawn)
             {
                 anim.SetTrigger("Stagger");
                 isMoving = false;
             }
-            else
-                anim.SetTrigger("Stagger_Sword"); isMoving = false;
-            dealDamage=!dealDamage;
+            else anim.SetTrigger("Stagger_Sword"); isMoving = false;
+
+            dealDamage = !dealDamage;
         }
 
-        if (Keyboard.current.pKey.isPressed && drawn == false) { anim.SetTrigger("Attack");} //Basic punch attack
-        else if (Keyboard.current.pKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack");} //Sword attack if weapon drawn
-        else if (Keyboard.current.oKey.isPressed && drawn == true){anim.SetTrigger("SwordAttack_2");} //Alternative sword attack
-
-        if(!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus()){drawn = false;} //If arm breaks, reset to sheathed weapon
+        /*
+        if (Keyboard.current.pKey.isPressed && drawn == false) { anim.SetTrigger("Attack"); } //Basic punch attack
+        else if (Keyboard.current.pKey.isPressed && drawn == true) { anim.SetTrigger("SwordAttack"); } //Sword attack if weapon drawn
+        else if (Keyboard.current.oKey.isPressed && drawn == true) { anim.SetTrigger("SwordAttack_2"); } //Alternative sword attack
 
         if (Keyboard.current.dKey.isPressed && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus()) //Draw weapon
         {
@@ -116,18 +104,18 @@ public class EnemyMovement : MonoBehaviour
             drawn = true;
         }
 
-        if (Keyboard.current.sKey.isPressed && drawn == true){anim.SetTrigger("Stagger_Sword");} //Stagger with sword
-        else if(Keyboard.current.sKey.isPressed && drawn == false){anim.SetTrigger("Stagger");} //Stagger without sword
+        if (Keyboard.current.sKey.isPressed && drawn == true) { anim.SetTrigger("Stagger_Sword"); } //Stagger with sword
+        else if (Keyboard.current.sKey.isPressed && drawn == false) { anim.SetTrigger("Stagger"); } //Stagger without sword
+        */
 
-        if (!drawn){anim.SetBool("Walk", isMoving);} //Walk regular
-        else if (drawn){anim.SetBool("Walk_Sword", isMoving);} //Walk with sword
+        if (!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus()) { drawn = false; } //If arm breaks, reset to sheathed weapon
+        if (!drawn) { anim.SetBool("Walk", isMoving); } //Walk regular
+        else if (drawn) { anim.SetBool("Walk_Sword", isMoving); } //Walk with sword
 
-        if(!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !gameObject.GetComponent<EnemyBodyDestroy>().getLeftStatus() && destroyed)//Triggers defeat animation
+        if (!gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !gameObject.GetComponent<EnemyBodyDestroy>().getLeftStatus() && destroyed)//Triggers defeat animation
         {
             anim.SetTrigger("Defeat");
             destroyed = false;
         }
-        
-
     }
 }
