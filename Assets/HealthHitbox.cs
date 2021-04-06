@@ -17,10 +17,6 @@ public class HealthHitbox : MonoBehaviour
     {
         if (robot == Robot.User && !other.CompareTag("EnemyRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
         else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
-        else
-        {
-            if (robot.Equals(Robot.User)) hm.UserDamaged();
-            else if (robot.Equals(Robot.Enemy)) hm.EnemyDamaged();
-        }
+        else hm.TakeDamage();
     }
 }
