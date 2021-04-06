@@ -45,8 +45,7 @@ public class Destructable : MonoBehaviour
             piece.GetComponent<Rigidbody>().isKinematic = false;
 
             // mark LODKinda Component hit boolean as true
-            piece.transform.root.GetComponent<LODKinda>().hit = true;
-            
+            piece.transform.root.GetComponent<LODKinda>().hit = true;          
         }
     }
 
