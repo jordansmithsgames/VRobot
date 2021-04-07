@@ -16,6 +16,7 @@
 
 
 ## git-lfs ##
+*.asset filter=lfs diff=lfs merge=lfs -text
 
 #Image
 *.jpg filter=lfs diff=lfs merge=lfs -text
