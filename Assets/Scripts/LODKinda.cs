@@ -31,7 +31,7 @@ public class LODKinda : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("startcount is  " + startCount);
+        //Debug.Log("startcount is  " + startCount);
         
         // if user robot is close to object, show fractured building and hide unfractured
         if (Vector3.Distance(user.transform.position, gameObject.transform.position) < distance)
