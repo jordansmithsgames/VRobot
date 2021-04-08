@@ -19,7 +19,7 @@ public class EnemyHealthManager : HealthManager
         currHealth--;
         enemyAI.health = currHealth;
         enemyAI.dealDamage = true;
-        Debug.Log("Enemy robot's current health: " + currHealth);
+        //Debug.Log("Enemy robot's current health: " + currHealth);
     }
 
     public override void HalfHealth()
