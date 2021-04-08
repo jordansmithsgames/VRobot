@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 01b634fc1de7e8743aa1990a62e0676f, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 385649887}
+  m_SkySettings: {fileID: 687103958}
   m_SkySettingsFromProfile: {fileID: 7488742677745068149, guid: 01b634fc1de7e8743aa1990a62e0676f,
     type: 2}
 --- !u!4 &29748870
@@ -6007,7 +6007,7 @@ PrefabInstance:
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.05
+      value: -65.3
       objectReference: {fileID: 0}
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
@@ -6017,7 +6017,7 @@ PrefabInstance:
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 106.44
+      value: 118.2
       objectReference: {fileID: 0}
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
@@ -6027,7 +6027,7 @@ PrefabInstance:
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.20769021
+      value: -0.62261546
       objectReference: {fileID: 0}
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
@@ -6037,7 +6037,7 @@ PrefabInstance:
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9781947
+      value: 0.7825279
       objectReference: {fileID: 0}
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
@@ -6052,7 +6052,7 @@ PrefabInstance:
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -23.974
+      value: -77.01501
       objectReference: {fileID: 0}
     - target: {fileID: 6306362029270788624, guid: 0b4de63e04018b34c849da10f3c7b3be,
         type: 3}
@@ -7510,107 +7510,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 384680647}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &385649887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 10
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1001 &394825913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11261,6 +11160,107 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8335476e114095740bd78597cd77019d, type: 3}
+--- !u!114 &687103958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 10
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 8253d41e6e8b11a4cbe77a4f8f82934d, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!4 &688922536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fca2c56d16a0d4042856cbe1904cb9a2,
