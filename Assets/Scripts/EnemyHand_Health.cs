@@ -6,9 +6,9 @@ public class EnemyHand_Health : MonoBehaviour
 {
     public int health;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("UserRobot") && health > 0)
+        if (other.gameObject.CompareTag("UserRobot") && health > 0)
         {
             Debug.Log("Enemy shoulder health: " + health);
             health -= 5;
