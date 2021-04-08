@@ -50,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
         transform.LookAt(PlayerRobot.transform);
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") || anim.GetCurrentAnimatorStateInfo(0).IsName("Walk_Sword") || anim.GetCurrentAnimatorStateInfo(0).IsName("Idle_Sword"))
         {
-            if (Vector3.Distance(transform.position, PlayerRobot.transform.position) >= MinDist && Vector3.Distance(transform.position, PlayerRobot.transform.position) <= 100)
+            if (Vector3.Distance(transform.position, PlayerRobot.transform.position) >= MinDist && Vector3.Distance(transform.position, PlayerRobot.transform.position) <= 130)
             {
                 isMoving = true;
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
