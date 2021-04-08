@@ -15,10 +15,11 @@ public class UserHealthManager : HealthManager
     {
         enemy.currHealth++;
         currHealth--;
+        Debug.Log("User robot's health: " + currHealth);
     }
 
     public override void HalfHealth()
     {
-        Debug.Log("Fuck");
+        
     }
 }
