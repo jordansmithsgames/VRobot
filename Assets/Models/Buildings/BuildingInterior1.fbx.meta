@@ -3,7 +3,52 @@ guid: f8616e3d5d6c1d548b0147153c9de3c8
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingInterior2StandardSurface
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS10
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS11
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS12
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS13
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS6
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS7
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS8
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shatterInteriorS9
+    second: {fileID: 2100000, guid: 5cb12a69ecdb1194badfe2599ca843ac, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
