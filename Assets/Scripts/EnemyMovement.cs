@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     public float MinDist = 5;
     private bool isMoving = false;
 
-    public int health = 100;
+    public float health, criticalHealth;
 
     public bool destroyed = true; //Both arms destroyed?
 
@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("SwordAttack_2");
         }
 
-        if (health <= 50 && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn)
+        if (health <= criticalHealth && gameObject.GetComponent<EnemyBodyDestroy>().getRightStatus() && !drawn)
         {
             anim.SetTrigger("Draw");
             drawn = true;
