@@ -19,7 +19,7 @@ public class HealthHitbox : MonoBehaviour
         else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
         else
         {
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
             hm.TakeDamage();
         }
     }
