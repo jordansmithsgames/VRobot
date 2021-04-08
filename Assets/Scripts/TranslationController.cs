@@ -21,7 +21,7 @@ public class TranslationController : MonoBehaviour
     {
         if (inBounds)
         {
-            Debug.Log("Responding to player input for translation!");
+            //Debug.Log("Responding to player input for translation!");
             target.transform.position = rightHand.transform.position;
             float offset = target.transform.localPosition.y - initPos.y;
             userRobot.transform.Translate(-offset * walkingSpeed * Time.deltaTime, 0, 0);
