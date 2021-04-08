@@ -2632,6 +2632,7 @@ MonoBehaviour:
   MaxDist: 20
   MinDist: 16
   health: 100
+  criticalHealth: 0
   destroyed: 1
   dealDamage: 0
   mainEnemy: {fileID: 1514564710277300050}
@@ -41948,10 +41949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a315baaa4b5149445a37a53453ad7064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: 0
-  maxHealth: 150
+  robot: 1
+  maxHealth: 100
   currHealth: 0
   user: {fileID: 0}
+  enemyAI: {fileID: 1514564710277300048}
 --- !u!1 &2649206419130054483
 GameObject:
   m_ObjectHideFlags: 0
@@ -44211,7 +44213,7 @@ GameObject:
   - component: {fileID: 4285737849099697610}
   m_Layer: 0
   m_Name: L_Clav
-  m_TagString: Untagged
+  m_TagString: EnemyRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44244,7 +44246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c767026a3668161439ff278e7eaa571a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
 --- !u!65 &4285737849099697609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49483,7 +49485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4445393219974199197
 Transform:
   m_ObjectHideFlags: 0
@@ -111509,7 +111511,7 @@ GameObject:
   - component: {fileID: 8125360615017803534}
   m_Layer: 0
   m_Name: R_Clav
-  m_TagString: Untagged
+  m_TagString: EnemyRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111542,7 +111544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c767026a3668161439ff278e7eaa571a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 30
 --- !u!65 &8125360615017803533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111552,7 +111554,7 @@ BoxCollider:
   m_GameObject: {fileID: 8125360615017803535}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.4695216, y: 1.1589236, z: 3.950594}
   m_Center: {x: -2.8914356, y: -1.3048395, z: -1.1066055}
