@@ -8,14 +8,8 @@ public class EnemyHand_Health : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player_Hand"))
-        {
+        if (collision.gameObject.CompareTag("UserRobot") && health > 0) 
             health--;
-            if(health <= 0)
-            {
-                health = 0;
-            }
-        }
     }
 
     public int getHealth()
