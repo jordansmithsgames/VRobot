@@ -15,13 +15,14 @@ using UnityEngine.InputSystem;
 public class EnemyMovement : MonoBehaviour
 {
     public float MoveSpeed = 1f;
-    public float MaxDist = 10;
-    public float MinDist = 5;
+    public float MaxDist; //Distance to start attacking
+    public float MinDist; //How far before starting to move
     private bool isMoving = false;
 
     public float health, criticalHealth;
 
     public bool destroyed = true; //Both arms destroyed?
+    bool defeated = false;
 
     private bool drawn = false; //Is weapon drawn?
 
@@ -129,6 +130,13 @@ public class EnemyMovement : MonoBehaviour
         {
             anim.SetTrigger("Defeat");
             destroyed = false;
+        }
+
+        if(health <= 0 && !defeated)
+        {
+            anim.SetTrigger("Defeat");
+            defeated = true;
+
         }
     }
 
