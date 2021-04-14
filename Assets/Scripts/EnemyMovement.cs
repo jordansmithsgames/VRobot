@@ -34,6 +34,9 @@ public class EnemyMovement : MonoBehaviour
 
     private GameObject PlayerRobot;
 
+    public Material[] healthState1 = new Material[7];
+    public Material[] healthState2 = new Material[7];
+
     // Use this for initialization
     void Start()
     {
@@ -93,6 +96,16 @@ public class EnemyMovement : MonoBehaviour
             dealDamage = !dealDamage;
         }
 
+        if(health <= 65 && health > 25)
+        {
+            changeMats(healthState1);
+        }
+
+        if(health <= 25)
+        {
+            changeMats(healthState2);
+        }
+
         /*
         if (Keyboard.current.pKey.isPressed && drawn == false) { anim.SetTrigger("Attack"); } //Basic punch attack
         else if (Keyboard.current.pKey.isPressed && drawn == true) { anim.SetTrigger("SwordAttack"); } //Sword attack if weapon drawn
@@ -116,6 +129,15 @@ public class EnemyMovement : MonoBehaviour
         {
             anim.SetTrigger("Defeat");
             destroyed = false;
+        }
+    }
+
+    public void changeMats(Material[] healthChange)
+    {
+
+        for(int i = 0; i <8; i++)
+        {
+            GameObject.Find("RobotMesh").GetComponent<Renderer>().materials = healthChange;
         }
     }
 }
