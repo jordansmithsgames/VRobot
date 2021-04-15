@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HealthHitbox : MonoBehaviour
 {
+    private static float cooldown = 5f;
     private HealthManager hm;
     private Robot robot;
+    private float timer;
 
     private void Start()
     {
@@ -13,14 +15,23 @@ public class HealthHitbox : MonoBehaviour
         robot = hm.GetRobotType();
     }
 
+    private void Update()
+    {
+        if (0 < timer && timer <= cooldown) timer -= Time.deltaTime;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (robot == Robot.User && !other.CompareTag("EnemyRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
-        else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
-        else
+        if (timer <= 0)
         {
-            //Debug.Log(other.gameObject.name);
-            hm.TakeDamage();
+            if (robot == Robot.User && !other.CompareTag("EnemyRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
+            else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
+            else
+            {
+                //Debug.Log(other.gameObject.name);
+                hm.TakeDamage();
+                timer = cooldown;
+            }
         }
     }
 }
