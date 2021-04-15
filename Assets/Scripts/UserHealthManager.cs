@@ -11,15 +11,11 @@ public class UserHealthManager : HealthManager
         currHealth = maxHealth;
     }
 
-    public override void TakeDamage()
+    public override void TakeDamage(float damage)
     {
-        enemy.currHealth++;
-        currHealth--;
-        Debug.Log("User robot's health: " + currHealth);
-    }
+        enemy.currHealth += damage;
+        currHealth -= damage;
 
-    public override void HalfHealth()
-    {
-        
+        CheckHealth();
     }
 }

@@ -13,17 +13,16 @@ public class EnemyHealthManager : HealthManager
         enemyAI.criticalHealth = maxHealth / 2.0f;
     }
 
-    public override void TakeDamage()
+    public override void TakeDamage(float damage)
     {
-        user.currHealth++;
-        currHealth--;
+        // Update robots' health
+        user.currHealth += damage;
+        currHealth -= damage;
+
+        // Update AI and play hitstun animation
         enemyAI.health = currHealth;
         enemyAI.dealDamage = true;
-        //Debug.Log("Enemy robot's current health: " + currHealth);
-    }
 
-    public override void HalfHealth()
-    {
-        
+        CheckHealth();
     }
 }

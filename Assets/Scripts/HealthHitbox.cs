@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthHitbox : MonoBehaviour
 {
-    private static float cooldown = 5f;
+    private static float cooldown = 3f;
     private HealthManager hm;
     private Robot robot;
     private float timer;
@@ -29,7 +29,8 @@ public class HealthHitbox : MonoBehaviour
             else
             {
                 //Debug.Log(other.gameObject.name);
-                hm.TakeDamage();
+                float damage = 1;
+                hm.TakeDamage(damage);
                 timer = cooldown;
             }
         }

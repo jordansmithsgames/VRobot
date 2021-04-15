@@ -13,7 +13,6 @@ public abstract class HealthManager : MonoBehaviour
     public void CheckHealth()
     {
         if (currHealth > maxHealth) currHealth = maxHealth;
-        else if (currHealth <= maxHealth / 2.0f) HalfHealth();
         else if (currHealth < 0) currHealth = 0;
         Debug.Log("Current health of the " + robot.ToString() + " robot: " + currHealth);
     }
@@ -25,7 +24,5 @@ public abstract class HealthManager : MonoBehaviour
 
     //public abstract void HitRobot();
 
-    public abstract void TakeDamage();
-
-    public abstract void HalfHealth();
+    public abstract void TakeDamage(float damage);
 }
