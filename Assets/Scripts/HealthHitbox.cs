@@ -28,7 +28,7 @@ public class HealthHitbox : MonoBehaviour
             else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
             else
             {
-                //Debug.Log(other.gameObject.name);
+                Debug.Log(robot.ToString() + " hit by " + other.gameObject.name);
                 float damage = 1;
                 hm.TakeDamage(damage);
                 timer = cooldown;
