@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthHitbox : MonoBehaviour
 {
-    private static float cooldown = 3f;
+    private static float cooldown = 2.5f;
     private HealthManager hm;
     private Robot robot;
     private float timer;
@@ -24,12 +24,17 @@ public class HealthHitbox : MonoBehaviour
     {
         if (timer <= 0)
         {
-            if (robot == Robot.User && !other.CompareTag("EnemyRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
-            else if (robot == Robot.Enemy && !other.CompareTag("UserRobot")) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
-            else
+            bool isUser = robot == Robot.User;
+            bool isEnemy = robot == Robot.Enemy;
+            bool otherUser = other.CompareTag("UserRobot");
+            bool otherEnemy = other.CompareTag("EnemyRobot");
+
+
+            if (isUser && !otherEnemy) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
+            else if (isEnemy && !otherUser) Physics.IgnoreCollision(other, this.GetComponent<Collider>());
+            else if ((isUser && otherEnemy) || (isEnemy && otherUser))
             {
-                Debug.Log(robot.ToString() + " hit by " + other.gameObject.name);
-                float damage = 1;
+                float damage = 10;
                 hm.TakeDamage(damage);
                 timer = cooldown;
             }

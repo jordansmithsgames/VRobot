@@ -14,7 +14,7 @@ public abstract class HealthManager : MonoBehaviour
     {
         if (currHealth > maxHealth) currHealth = maxHealth;
         else if (currHealth < 0) currHealth = 0;
-        //Debug.Log("Current health of the " + robot.ToString() + " robot: " + currHealth);
+        Debug.Log("Current health of the " + robot.ToString() + " robot: " + currHealth);
     }
 
     public Robot GetRobotType()
