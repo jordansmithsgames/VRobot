@@ -5,23 +5,29 @@ using Photon.Pun;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
-    public Transform spawnpoint1, spawnpoint2, controlRoom;
+    public Transform spawnpoint1, spawnpoint2, spawnpoint3, controlRoom;
     public GameObject xrRig;
     private GameObject spawnedPlayerPrefab;
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-    
-        if (PhotonNetwork.IsMasterClient) // Player 1
+        Photon.Realtime.Player[] others = PhotonNetwork.PlayerListOthers;
+
+        if (others.Length == 0) // Player 1 / Host (no other players)
         {
             Debug.Log("Player 1 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint1.position, spawnpoint1.rotation);
         }
-        else // Player 2
+        else if (others.Length == 1) // Player 2
         {
             Debug.Log("Player 2 joined!");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", spawnpoint2.position, spawnpoint2.rotation);
+        }
+        else // Player 3+
+        {
+            Debug.Log("Player 3 joined! (Camera man!)");
+            spawnedPlayerPrefab = PhotonNetwork.Instantiate("Camera Player", spawnpoint3.position, spawnpoint3.rotation);
         }
 
         spawnedPlayerPrefab.transform.parent = controlRoom;
