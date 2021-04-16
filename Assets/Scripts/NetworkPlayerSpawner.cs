@@ -27,7 +27,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         else // Player 3+
         {
             Debug.Log("Player 3 joined! (Camera man!)");
-            spawnedPlayerPrefab = PhotonNetwork.Instantiate("Camera Player", spawnpoint3.position, spawnpoint3.rotation);
+            //spawnedPlayerPrefab = PhotonNetwork.Instantiate("Camera Player", spawnpoint3.position, spawnpoint3.rotation);
             return;
         }
 
