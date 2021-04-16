@@ -6,7 +6,7 @@ using Photon.Pun;
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
     public Transform spawnpoint1, spawnpoint2, spawnpoint3, controlRoom;
-    public GameObject xrRig, xrCameras, flyCam;
+    public GameObject xrRig;
     private GameObject spawnedPlayerPrefab;
 
     public override void OnJoinedRoom()
@@ -28,7 +28,6 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         {
             Debug.Log("Player 3 joined! (Camera man!)");
             spawnedPlayerPrefab = PhotonNetwork.Instantiate("Camera Player", spawnpoint3.position, spawnpoint3.rotation);
-            xrCameras.SetActive(false);
             return;
         }
 
