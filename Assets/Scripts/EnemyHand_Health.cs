@@ -5,27 +5,13 @@ using UnityEngine;
 public class EnemyHand_Health : MonoBehaviour
 {
     public int health;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Player_Hand"))
+        if (other.gameObject.CompareTag("UserRobot") && health > 0)
         {
-            health--;
-            if(health <= 0)
-            {
-                health = 0;
-            }
+            Debug.Log("Enemy shoulder health: " + health);
+            health -= 5;
         }
     }
 

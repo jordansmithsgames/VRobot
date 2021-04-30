@@ -9,6 +9,12 @@ TagManager:
   - Destructable
   - EnemyRobot
   - Player_Hand
+  - IgnoreCollision
+  - Fire
+  - LeftHand
+  - RightHand
+  - Network Player
+  - UserRobot
   layers:
   - Default
   - TransparentFX
@@ -19,8 +25,8 @@ TagManager:
   - 
   - 
   - Destructable
-  - TerrainLayer
-  - 
+  - Terrain
+  - PostProcessing
   - 
   - 
   - 

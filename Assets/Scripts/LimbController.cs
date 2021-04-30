@@ -1,56 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class LimbController : MonoBehaviour
 {
-    public GameObject controller;
-    public GameObject target;
+    enum Hand { RightHand, LeftHand}
+    [SerializeField] Hand hand;
+    [SerializeField] PhotonView photonView;
+    public GameObject target, controller;
     public bool far;
+    private string tag;
 
     void Start()
     {
-        // Initialize to be at same location
-        //controller.transform.position = transform.position;
-        //target.transform.position = transform.position;
         far = true;
+        tag = hand == Hand.RightHand ? "RightHand" : "LeftHand";
+    }
+
+    private void Update()
+    {
+        if (!far) target.transform.position = controller.transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == controller)
+        if (other.gameObject.name.Contains(tag))
         {
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
             far = false;
-            other.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log("Controller in the control zone!");
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject == controller)
-        {
-            if (other.bounds.Contains(controller.transform.position))
-            {
-                far = false;
-                other.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-                target.transform.position = controller.transform.position;
-            }
-            else
-            {
-                far = true;
-                other.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-            }
+            controller = other.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == controller)
+        if (other.gameObject.name.Contains(tag))
         {
             far = true;
-            other.gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-            Debug.Log("Controller has left the control zone!");
+            controller = null;
         }
     }
 }

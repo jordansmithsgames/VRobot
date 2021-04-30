@@ -45,8 +45,8 @@ public class NetworkPlayer : MonoBehaviour
         if (photonView.IsMine)
         {
             MapPosition(head, headRig);
-            MapPosition(leftHand, leftHandRig);
-            MapPosition(rightHand, rightHandRig);
+            MapTransform(leftHand, leftHandRig);
+            MapTransform(rightHand, rightHandRig);
 
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), leftHandAnimator);
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), rightHandAnimator);
@@ -74,9 +74,14 @@ public class NetworkPlayer : MonoBehaviour
         }
     }
 
-    void MapPosition(Transform target, Transform rigTransform)
+    void MapTransform(Transform target, Transform rigTransform)
     {
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
+    }
+
+    void MapPosition(Transform target, Transform rigTransform)
+    {
+        target.position = rigTransform.position;
     }
 }

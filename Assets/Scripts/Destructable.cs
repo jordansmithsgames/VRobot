@@ -25,11 +25,11 @@ public class Destructable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Destructable"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             GameObject piece;
             GameObject particle;
             piece = collision.gameObject;
-         
+                
             //Check if object has already been hit
             if (piece.GetComponent<Rigidbody>().isKinematic == true)
             {
@@ -37,12 +37,15 @@ public class Destructable : MonoBehaviour
                 particle.AddComponent<DestructionRemove>();
 
                 queueHandler(piece, particle);
+                piece.transform.root.GetComponent<LODKinda>().currentCount--;
             }
           
             // Make objects move
             piece.GetComponent<Rigidbody>().useGravity = true;
             piece.GetComponent<Rigidbody>().isKinematic = false;
-            
+
+            // mark LODKinda Component hit boolean as true
+            piece.transform.root.GetComponent<LODKinda>().hit = true;          
         }
     }
 
